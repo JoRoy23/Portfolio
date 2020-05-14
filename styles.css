@@ -1,0 +1,922 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: rgba(10, 25, 47, 1);
+}
+/* ==========================================
+                   PRELOADER
+============================================= */
+.preload {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(2, 12, 27, 1);
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoLoader path:nth-child(1) {
+  stroke-dasharray: 321.82427978515625;
+  stroke-dashoffset: 321.82427978515625;
+  animation: lineAnimation 2s ease forwards;
+}
+.logoLoader path:nth-child(2) {
+  opacity: 0;
+  animation: lineAnimation 2s ease forwards;
+  animation-delay: 2s;
+}
+.logoLoader path:nth-child(3) {
+  opacity: 0;
+  animation: lineAnimation 2s ease forwards;
+  animation-delay: 2s;
+}
+@keyframes lineAnimation {
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+/* ==========================================
+                   HEADER
+============================================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 25, 47, 1);
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+.logo {
+  display: block;
+  margin-left: 20px;
+  /*padding: 7px 12px;*/
+  text-decoration: none;
+  font-weight: 500;
+  color: rgba(1, 243, 207, 1);
+  text-shadow: 3px 0px 0px rgba(136, 146, 176, 1);
+}
+.hamburgerMenu {
+  width: 50px;
+  height: 50px;
+  margin: 20px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+.hamburgerMenu.navBarOpen {
+  transform: rotate(135deg);
+  transition: all 0.5s ease;
+}
+.hamburgerMenu .hamburgerMiddleBar {
+  position: relative;
+  width: 60%;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(1, 243, 207, 1);
+}
+.hamburgerMenu .hamburgerMiddleBar:after,
+.hamburgerMenu .hamburgerMiddleBar:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120%;
+  content: "";
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(1, 243, 207, 1);
+}
+.hamburgerMenu .hamburgerMiddleBar:before {
+  transform: translateY(-10px);
+  transition: all 0.5s ease;
+}
+.hamburgerMenu .hamburgerMiddleBar:after {
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+}
+.hamburgerMenu.navBarOpen .hamburgerMiddleBar:after,
+.hamburgerMenu.navBarOpen .hamburgerMiddleBar:before {
+  width: 100%;
+  transform: translateY(0) rotate(90deg);
+  transition: all 0.5s ease;
+}
+.navBar {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 40px;
+  list-style: none;
+  background: rgba(23, 42, 69, 1);
+  transition: right 0.5s;
+}
+.navBar.viewNavBar {
+  right: 0;
+  transition: right 0.5s;
+}
+.navBar .navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 13px 15px;
+  font-size: 0.9rem;
+  font-weight: 100;
+  color: rgba(1, 243, 207, 1);
+}
+.navBar .navItem a {
+  display: inline-block;
+  padding: 10px 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 1.1px;
+  line-height: 1.5;
+  color: rgba(204, 214, 246, 1);
+  transition: color 0.5s;
+}
+.navBar .navItem:last-child a {
+  margin-top: 30px;
+  padding: 13px 45px;
+  font-size: 0.9rem;
+  border-radius: 3px;
+  border: 1px solid rgba(1, 243, 207, 1);
+  color: rgba(1, 243, 207, 1);
+  transition: background 0.5s;
+}
+.navBar .navItem a:hover {
+  color: rgba(1, 243, 207, 1);
+  transition: color 0.5s;
+}
+.navBar .navItem:last-child a:hover {
+  background: rgba(1, 243, 207, 0.1);
+  transition: background 0.5s;
+}
+
+/* ==========================================
+                HOME CONTENT
+============================================= */
+.homeMainContainer {
+  width: 100%;
+}
+.homeContainer {
+  width: 80%;
+  margin: 140px auto 0;
+}
+.homeContainer .smallText {
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  font-weight: 100;
+  color: rgba(1, 243, 207, 1);
+}
+.homeHeader span,
+.homeHeader {
+  width: 100%;
+  margin: 0;
+  font-size: 2.1rem;
+  font-weight: 550;
+  line-height: 1.2;
+  color: rgba(204, 214, 246, 1);
+}
+.homeHeader span {
+  color: rgba(136, 146, 176, 1);
+}
+.homePresentation {
+  width: 100%;
+  margin: 40px 0 65px;
+  font-size: 0.9rem;
+  font-weight: 200;
+  line-height: 1.7;
+  letter-spacing: 1.03px;
+  color: rgba(136, 146, 176, 1);
+}
+.getInTouch {
+  display: inline-block;
+  padding: 18px 32px;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  font-weight: 100;
+  letter-spacing: 1.1px;
+  color: rgba(1, 243, 207, 1);
+  border: 1px solid rgba(1, 243, 207, 1);
+  border-radius: 3px;
+  transition: background 0.5s;
+}
+.getInTouch:hover {
+  background: rgba(1, 243, 207, 0.1);
+  transition: background 0.5s;
+}
+
+/* ============================================================
+                          ABOUT 
+=============================================================== */
+.aboutDescription {
+  width: 100%;
+}
+.skillsDescription p,
+.aboutDescription p {
+  margin: 20px 0;
+  font-size: 0.9rem;
+  font-weight: 100;
+  line-height: 1.7;
+  color: rgba(136, 146, 176, 1);
+}
+.aboutDescription p:first-of-type {
+  margin: 0;
+}
+.aboutDescription p a {
+  position: relative;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 100;
+  color: rgba(1, 243, 207, 1);
+}
+.aboutPicture {
+  float: right;
+  clear: both;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0px 10px;
+  border-radius: 5px;
+  background: url("./images/profil.jpg") no-repeat center;
+  background-size: cover;
+}
+.aboutPicture:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 243, 207, 0.4);
+  transition: all 0.5s ease;
+}
+.aboutPicture:hover:before {
+  background: transparent;
+  transition: all 0.5s ease;
+}
+.aboutPicture:after {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border: 3px solid rgba(1, 243, 207, 1);
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.aboutPicture:hover:after {
+  top: 5px;
+  left: 5px;
+  transition: all 0.2s ease-in-out;
+}
+/* ============================================================
+                          SKILLS
+=============================================================== */
+.programLanguagesContainer {
+  width: 100%;
+}
+.programLanguagesContainer ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+.programLanguage i {
+  margin-right: 5px;
+  font-size: 0.8rem;
+  color: rgba(1, 243, 207, 1);
+}
+.programLanguage {
+  font-size: 0.9rem;
+  font-weight: 100;
+  color: rgba(136, 146, 176, 1);
+}
+/* ============================================================
+                          PROJECTS
+=============================================================== */
+.projectsSection {
+  width: 100%;
+}
+.projectDescriptionContainer {
+  width: 100%;
+  padding: 30px 25px;
+  background: rgba(23, 42, 69, 1);
+  border-radius: 5px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+.projectDescriptionContainer:hover.fadeIn.appear {
+  transform: translateY(-5px);
+  transition: all 0.3s ease-in-out;
+}
+.projectsLink {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.projectsLink > i {
+  font-size: 3rem;
+  color: rgba(1, 243, 207, 1);
+}
+.projectsLink ul {
+  list-style: none;
+  display: flex;
+}
+.projectsLink ul a {
+  display: inline-block;
+  padding: 13px;
+}
+.projectsLink ul a i {
+  font-size: 1.2rem;
+  color: rgba(204, 214, 246, 1);
+  transition: color 0.5s ease;
+}
+.projectsLink ul a:hover i {
+  color: rgba(1, 243, 207, 1);
+  transition: color 0.5s ease;
+}
+.projectsTitle {
+  display: block;
+  margin-top: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  transition: color 0.5s ease;
+}
+.projectsTitle:hover {
+  color: rgba(1, 243, 207, 1);
+  transition: color 0.5s ease;
+}
+.projectDescription {
+  margin: 15px 0 40px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(136, 146, 176, 1);
+}
+.languageUsed {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.languageUsed span {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: rgba(204, 214, 246, 1);
+}
+.languageUsed span:first-of-type {
+  margin: 0;
+}
+/* ============================================================
+                          CONTACT
+=============================================================== */
+#skillsMainContainer,
+#projectsMainContainer,
+#aboutMainContainer,
+#contactMainContainer {
+  width: 80%;
+  margin: 115px auto 0;
+  padding-top: 85px;
+}
+.skillsTitleContainer,
+.projectsTitleContainer,
+.aboutTitleContainer,
+.contactTitleContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.skillsTitleContainer h1,
+.projectsTitleContainer h1,
+.aboutTitleContainer h1,
+.contactTitleContainer h1 {
+  display: flex;
+  align-items: baseline;
+  font-size: 1.5rem;
+  letter-spacing: 1.1px;
+  color: rgba(204, 214, 246, 1);
+}
+.skillsTitleContainer h1 span,
+.projectsTitleContainer h1 span,
+.aboutTitleContainer h1 span,
+.contactTitleContainer h1 span {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: rgba(1, 243, 207, 1);
+}
+.skillsTitleBorder,
+.projectsTitleBorder,
+.aboutTitleBorder,
+.contactTitleBorder {
+  flex-grow: 1;
+  height: 1px;
+  background: rgba(136, 146, 176, 1);
+  margin-left: 10px;
+}
+.projectsContainer,
+.skillsContainer,
+.aboutContainer,
+.contactContainer {
+  width: 100%;
+  margin: 40px auto;
+}
+.contactInformation {
+  width: 100%;
+  font-size: 0.9rem;
+  letter-spacing: 1.1px;
+  line-height: 1.7;
+  color: rgba(204, 214, 246, 1);
+}
+.contactQuestions {
+  margin: 20px 0 40px;
+  font-size: 0.8rem;
+  font-weight: 200;
+  line-height: 1.7;
+  letter-spacing: 1.03px;
+  color: rgba(136, 146, 176, 1);
+}
+.contactQuestions a {
+  position: relative;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 200;
+  line-height: 1.7;
+  letter-spacing: 1.03px;
+  color: rgba(1, 243, 207, 1);
+}
+.aboutDescription p a:before,
+.contactQuestions a:before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 0%;
+  height: 1px;
+  background: rgba(1, 243, 207, 1);
+  transition: width 0.5s ease;
+}
+.aboutDescription p a:hover:before,
+.contactQuestions a:hover:before {
+  width: 100%;
+  transition: width 0.5s ease;
+}
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 35px;
+  margin-top: 40px;
+}
+.contactSection {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(136, 146, 176, 1);
+}
+.contactTextArea {
+  position: relative;
+  height: 115px;
+}
+.contactTextArea textarea,
+.contactSection input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 0.9rem;
+  color: rgba(204, 214, 246, 1);
+  border: none;
+  background: transparent;
+  z-index: 1;
+}
+.contactTextArea textarea {
+  padding: 10px 10px;
+  line-height: 1.5;
+  resize: none;
+}
+.contactSection .sectionTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: -23px 0 0 -1px;
+  font-size: 0.8rem;
+  letter-spacing: 1.1px;
+  color: rgba(204, 214, 246, 1);
+  transition: margin 0.5s;
+}
+.contactSection .sectionBorder {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 0%;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(1, 243, 207, 1);
+  transition: width 1s;
+}
+.contactSection textarea:focus ~ .sectionBorder,
+.contactSection input:focus ~ .sectionBorder {
+  width: 100%;
+  transition: width 1s;
+}
+.contactButtonContainer {
+  text-align: right;
+}
+.contactSendButton {
+  padding: 11px 30px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  cursor: pointer;
+  color: rgba(1, 243, 207, 1);
+  background: transparent;
+  border: 1px solid rgba(1, 243, 207, 1);
+  border-radius: 3px;
+  transition: background 0.5s;
+}
+.contactSendButton:hover {
+  background: rgba(1, 243, 207, 0.1);
+  transition: background 0.5s;
+}
+
+/* ============================================================
+                      CONTACT PHP
+=============================================================== */
+.send,
+.error {
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(204, 214, 246, 1);
+  background: red;
+}
+.send {
+  background: green;
+}
+/* ==========================================
+          FOOTER SOCIAL ICONS BAR
+============================================= */
+.socialIconsBar {
+  width: 55%;
+  margin: 70px auto 20px;
+}
+.socialIconsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.socialIconsContainer a {
+  padding: 10px;
+}
+.socialIconsContainer a i {
+  font-size: 1.2rem;
+  color: rgba(204, 214, 246, 1);
+  transition: color 0.2s ease;
+}
+.socialIconsContainer a:hover i {
+  color: rgba(1, 243, 207, 1);
+  transition: color 0.2s ease;
+}
+.socialIconsBorder {
+  width: 1px;
+  height: 120px;
+  margin-top: 20px;
+  background: rgba(204, 214, 246, 1);
+  display: none;
+}
+
+/* ==========================================
+          FOOTER EMAIL ADDRESS BAR
+============================================= */
+.emailBarContainer {
+  position: fixed;
+  bottom: 152px;
+  right: -110px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  transform: rotate(90deg);
+  display: none;
+}
+.emailAddressBar {
+  padding: 10px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 100;
+  letter-spacing: 3px;
+  color: rgba(136, 146, 176, 1);
+  transition: all 0.2s ease-in-out;
+}
+.emailAddressBar:hover {
+  transform: translateX(-5px) rotate(0deg);
+  color: rgba(1, 243, 207, 1);
+  transition: all 0.2s ease-in-out;
+}
+.emailAddressBorder {
+  width: 120px;
+  height: 1px;
+  margin-left: 20px;
+  background: rgba(204, 214, 246, 1);
+}
+
+/* ==========================================
+            FOOTER MADE BY
+============================================= */
+footer .madeBy {
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 100;
+  letter-spacing: 1.3px;
+  color: rgba(136, 146, 176, 1);
+}
+/* ==========================================
+            FADE IN SECTIONS
+============================================= */
+.fadeIn {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.fadeIn.appear {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-in;
+}
+.skillsTitleContainer.appear,
+.projectsTitleContainer.appear,
+.aboutTitleContainer.appear,
+.contactTitleContainer.appear {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.3s ease-in;
+}
+/* ==========================================
+             MEDIA QUERIE
+============================================= */
+@media screen and (min-width: 379px) {
+  /* HOME CONTENT */
+  .homeHeader span,
+  .homeHeader {
+    font-size: 2.6rem;
+  }
+}
+@media screen and (min-width: 500px) {
+  /* HOME CONTENT */
+  .homeHeader span,
+  .homeHeader {
+    font-size: 3.3rem;
+  }
+  .homePresentation {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* HEADER */
+  .logo {
+    margin-left: 40px;
+  }
+  .navBar {
+    position: static;
+    flex-direction: row;
+    height: 0;
+    background: rgba(10, 25, 47, 1);
+  }
+  .navBar .navItem {
+    flex-direction: row;
+    margin: 20px 15px;
+    font-size: 0.8rem;
+  }
+  .navBar .navItem a {
+    font-size: 0.8rem;
+    margin-left: 5px;
+  }
+  .navBar .navItem:last-child a {
+    margin-top: 0;
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    font-weight: 100;
+  }
+  .hamburgerMenu {
+    display: none;
+  }
+
+  /*HOME CONTENT */
+  .homeContainer {
+    width: 70%;
+    margin: 240px auto 0;
+  }
+  .homeContainer .smallText {
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  .homeHeader span,
+  .homeHeader {
+    width: 95%;
+    font-size: 4rem;
+  }
+  .homePresentation {
+    width: 85%;
+    margin: 50px 0 80px;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.7;
+  }
+  .getInTouch {
+    padding: 18px 37px;
+  }
+
+  /* FOR THE ABOUT */
+  #aboutMainContainer {
+    margin: 265px auto 0;
+  }
+  .aboutPicture {
+    float: right;
+    margin: 0px 20px;
+    width: 180px;
+    height: 180px;
+  }
+  .aboutPicture:after {
+    top: 13px;
+    left: 13px;
+  }
+  .aboutPicture:hover:after {
+    top: 10px;
+    left: 10px;
+  }
+  .aboutDescription p span,
+  .aboutDescription p {
+    font-size: 1rem;
+  }
+
+  /* FOR THE SKILLS */
+  .skillsDescription p {
+    font-size: 1rem;
+  }
+  .programLanguagesContainer ul {
+    grid-gap: 20px;
+  }
+  .programLanguage i {
+    font-size: 0.9rem;
+  }
+  .programLanguage {
+    font-size: 1rem;
+  }
+
+  /* FOR THE PROJECTS */
+  .projectsSection {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .projectDescriptionContainer {
+    width: 48%;
+  }
+
+  /* FOR THE CONTACT */
+  #projectsMainContainer,
+  #skillsMainContainer,
+  #aboutMainContainer,
+  #contactMainContainer {
+    width: 70%;
+  }
+  .projectsTitleContainer h1,
+  .skillsTitleContainer h1,
+  .aboutTitleContainer h1,
+  .contactTitleContainer h1 {
+    font-size: 2rem;
+  }
+  .contactGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .contactButtonContainer,
+  .contactTextArea,
+  .contactEmail,
+  .contactSubject {
+    grid-column: 1/3;
+  }
+  .contactInformation,
+  .contactQuestions,
+  .contactQuestions a {
+    font-size: 1rem;
+  }
+  .contactTextArea {
+    height: 150px;
+  }
+  .send,
+  .error {
+    font-size: 1rem;
+  }
+
+  /* FOOTER SOCIAL ICONS BAR */
+  .socialIconsBar {
+    width: 50px;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    left: 40px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .socialIconsContainer {
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .socialIconsContainer a {
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .socialIconsContainer a:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s ease-in-out;
+  }
+  .socialIconsContainer a:hover i {
+    color: rgba(1, 243, 207, 1);
+    transition: color 0.2s ease-in-out;
+  }
+  .socialIconsBorder {
+    display: block;
+    width: 1px;
+    height: 120px;
+    margin-top: 20px;
+  }
+
+  /* FOOTER EMAIL BAR */
+  .emailBarContainer {
+    display: flex;
+  }
+
+  /* FOR THE MADE BY FOOTER */
+  footer .madeBy {
+    margin: 80px 0 40px;
+  }
+}
+@media screen and (min-width: 990px) {
+  /*HOME CONTENT */
+  .homeContainer {
+    width: 750px;
+  }
+
+  /* FOR THE CONTACT */
+  #projectsMainContainer,
+  #skillsMainContainer,
+  #aboutMainContainer,
+  #contactMainContainer {
+    width: 750px;
+  }
+  .projectsContainer,
+  .skillsContainer,
+  .aboutContainer,
+  .contactContainer {
+    width: 750px;
+  }
+}
+@media screen and (min-height: 1280px) {
+  .homeContainer {
+    margin: 330px auto 0;
+  }
+
+  /* FOR THE ABOUT */
+  #aboutMainContainer {
+    margin: 370px auto 0;
+  }
+}

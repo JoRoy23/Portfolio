@@ -114,7 +114,7 @@
             the web). However, I have also expertise with backend development
           </p>
           <p>
-            Here are some of the programming languages and frameworks I'm using
+            Here are some of the programming languages, libraries and frameworks I'm using
             often on my daily work:
           </p>
           <div class="programLanguagesContainer">
@@ -152,14 +152,26 @@
       <div class="projectsContainer">
         <div class="projectsSection">
           <div class="projectDescriptionContainer fadeIn">
-          <div class="projectsLink">
+            <div class="projectsLink">
+              <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+              <ul>
+                <li><a href="https://github.com/JoRoy23/Goat-Kicker-Coffee-Co." target="_blank" title="Github Code"><i class="fab fa-github" title="github"></i></a></li>
+                <li><a href="#" target="_blank" title="Project Link"><i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+              </ul>
+            </div> 
+            <a href="#" class="projectsTitle">Coffee Online Store</a>
+            <p class="projectDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, nisi doloremque rerum, eaque vel eveniet excepturi quam eligendi nesciunt sit, hic magni vero. Neque iusto molestiae expedita ducimus tempora eveniet.</p>
+            <div class="languageUsed"><span>JavaScript</span><span>jQuery</span><span>PHP</span><span>GSAP</span></div>
+          </div>
+          <div class="projectDescriptionContainer fadeIn">
+            <div class="projectsLink">
               <i class="fa fa-folder-open-o" aria-hidden="true"></i>
               <ul>
                 <li><a href="#" target="_blank" title="Github Code"><i class="fab fa-github" title="github"></i></a></li>
                 <li><a href="#" target="_blank" title="Project Link"><i class="fa fa-external-link" aria-hidden="true"></i></a></li>
               </ul>
             </div> 
-            <a href="#" class="projectsTitle">Coffee Online Store</a>
+            <a href="#" class="projectsTitle">Landing Page</a>
             <p class="projectDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, nisi doloremque rerum, eaque vel eveniet excepturi quam eligendi nesciunt sit, hic magni vero. Neque iusto molestiae expedita ducimus tempora eveniet.</p>
             <div class="languageUsed"><span>JavaScript</span><span>jQuery</span><span>PHP</span><span>GSAP</span></div>
           </div>
@@ -280,7 +292,7 @@
           <a href="https://github.com/JoRoy23" target="_blank"><i class="fab fa-github" title="github"></i></a>
           <a href="https://www.linkedin.com/in/jonathan-roy-5b9922139/" target="_blank"><i class="fab fa-linkedin-in" title="linkedin"></i></a>
           <a href="https://www.facebook.com/jonathan.roy.104" target="_blank"><i class="fab fa-facebook-f" title="facebook"></i></a>
-          <a href="#" target="_blank"><i class="fab fa-twitter" title="twitter"></i></a>
+          <a href="https://twitter.com/home" target="_blank"><i class="fab fa-twitter" title="twitter"></i></a>
         </div>
         <div class="socialIconsBorder"></div>
       </div>

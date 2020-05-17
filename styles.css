@@ -329,6 +329,7 @@ header {
 }
 .projectDescriptionContainer {
   width: 100%;
+  margin-top: 30px;
   padding: 30px 25px;
   background: rgba(23, 42, 69, 1);
   border-radius: 5px;
@@ -805,9 +806,11 @@ footer .madeBy {
   .projectsSection {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
   .projectDescriptionContainer {
     width: 48%;
+    margin-top: 0;
   }
 
   /* FOR THE CONTACT */
@@ -922,6 +925,6 @@ footer .madeBy {
 
   /* FOR THE ABOUT */
   #aboutMainContainer {
-    margin: 370px auto 0;
+    margin: 435px auto 0;
   }
 }

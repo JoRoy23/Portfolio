@@ -8,6 +8,11 @@
 body {
   background: rgba(10, 25, 47, 1);
 }
+body.viewNavBar {
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 15px; /* Avoid width reflow */
+}
 /* ==========================================
                    PRELOADER
 ============================================= */

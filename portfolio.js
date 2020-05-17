@@ -4,12 +4,14 @@
 const hamburgerIcon = document.querySelector(".hamburgerMenu");
 const showNavBar = document.querySelector(".navBar");
 const navLinks = document.querySelectorAll(".navItem");
+const body = document.querySelector("body");
 
 /* Open/close navigation bar when clicking on the hamburger icon */
 hamburgerIcon.addEventListener("click", openCloseNavBar);
 
 function openCloseNavBar() {
   showNavBar.classList.toggle("viewNavBar");
+  body.classList.toggle("viewNavBar");
 }
 
 /* Switch icon when clicking on the hamburger menu*/
@@ -22,9 +24,10 @@ function switchIcon() {
 /* When clicking outside the window or on an element inside of it
 that is different then the hamburger icon */
 window.addEventListener("click", function (event) {
-  if (event.target != showNavBar && event.target != hamburgerIcon) {
+  if (event.target !== showNavBar && event.target !== hamburgerIcon) {
     showNavBar.classList.remove("viewNavBar");
     hamburgerIcon.classList.remove("navBarOpen");
+    body.classList.remove("viewNavBar");
   }
 });
 
@@ -43,13 +46,11 @@ window.addEventListener("scroll", () => {
   previousScrollPos = currentScrollPos;
 });
 
-/* ============================================================
-                HEADER COLOR/SHADOW ON SCROLL
-=============================================================== */
+/* Header shadow/color for the navigation bar */
 window.addEventListener("scroll", () => {
   let currentScrollPos = window.pageYOffset;
   let header = document.querySelector("header");
-  if (currentScrollPos == "0") {
+  if (currentScrollPos === 0) {
     header.style.boxShadow = "none";
     header.style.height = "6rem";
   } else {
@@ -201,8 +202,9 @@ sliders.forEach((slider) => {
 });
 
 /* ============================================================
-                LENGTH OF THE HEXAGON LOGO       
+                       HEXAGON LOGO       
 =============================================================== */
+/* Pixel length for the path of the hexagonal logo */
 const logo = document.querySelectorAll(".logoLoader path");
 
 for (let j = 0; j < logo.length; j++) {

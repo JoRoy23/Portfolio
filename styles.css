@@ -11,7 +11,6 @@ body {
 body.viewNavBar {
   height: 100vh;
   overflow-y: hidden;
-  padding-right: 15px; /* Avoid width reflow */
 }
 /* ==========================================
                    PRELOADER
@@ -69,13 +68,13 @@ header {
 .logo {
   display: block;
   margin-left: 20px;
-  /*padding: 7px 12px;*/
   text-decoration: none;
   font-weight: 500;
   color: rgba(1, 243, 207, 1);
   text-shadow: 3px 0px 0px rgba(136, 146, 176, 1);
 }
 .hamburgerMenu {
+  position: relative;
   width: 50px;
   height: 50px;
   margin: 20px 15px;
@@ -89,6 +88,16 @@ header {
 .hamburgerMenu.navBarOpen {
   transform: rotate(135deg);
   transition: all 0.5s ease;
+}
+.hamburgerMenu:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: transparent;
 }
 .hamburgerMenu .hamburgerMiddleBar {
   position: relative;

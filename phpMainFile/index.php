@@ -27,8 +27,9 @@
         </svg>                
       </a>
       </div>
-      <div class="hamburgerMenu">
+      <div class="hamburgerMenuContainer">
         <div class="hamburgerMiddleBar"></div>
+        <div class="hamburgerMenu"></div>
       </div>
       <ul class="navBar">
         <li class="navItem">

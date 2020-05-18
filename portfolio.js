@@ -1,6 +1,7 @@
 /* ============================================================
                     NAVIGATION BAR
 =============================================================== */
+const hamburgerContainer = document.querySelector(".hamburgerMenuContainer");
 const hamburgerIcon = document.querySelector(".hamburgerMenu");
 const showNavBar = document.querySelector(".navBar");
 const navLinks = document.querySelectorAll(".navItem");
@@ -18,7 +19,7 @@ function openCloseNavBar() {
 hamburgerIcon.addEventListener("click", switchIcon);
 
 function switchIcon() {
-  hamburgerIcon.classList.toggle("navBarOpen");
+  hamburgerContainer.classList.toggle("navBarOpen");
 }
 
 /* When clicking outside the window or on an element inside of it
@@ -26,7 +27,7 @@ that is different then the hamburger icon */
 window.addEventListener("click", function (event) {
   if (event.target !== showNavBar && event.target !== hamburgerIcon) {
     showNavBar.classList.remove("viewNavBar");
-    hamburgerIcon.classList.remove("navBarOpen");
+    hamburgerContainer.classList.remove("navBarOpen");
     body.classList.remove("viewNavBar");
   }
 });

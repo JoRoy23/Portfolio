@@ -73,41 +73,30 @@ header {
   color: rgba(1, 243, 207, 1);
   text-shadow: 3px 0px 0px rgba(136, 146, 176, 1);
 }
-.hamburgerMenu {
+.hamburgerMenuContainer {
   position: relative;
   width: 50px;
   height: 50px;
   margin: 20px 15px;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
   transition: all 0.5s ease;
 }
-.hamburgerMenu.navBarOpen {
+.hamburgerMenuContainer.navBarOpen {
   transform: rotate(135deg);
   transition: all 0.5s ease;
 }
-.hamburgerMenu:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: transparent;
-}
-.hamburgerMenu .hamburgerMiddleBar {
+.hamburgerMenuContainer .hamburgerMiddleBar {
   position: relative;
   width: 60%;
   height: 2px;
   border-radius: 2px;
   background: rgba(1, 243, 207, 1);
 }
-.hamburgerMenu .hamburgerMiddleBar:after,
-.hamburgerMenu .hamburgerMiddleBar:before {
+.hamburgerMenuContainer .hamburgerMiddleBar:after,
+.hamburgerMenuContainer .hamburgerMiddleBar:before {
   position: absolute;
   top: 0;
   right: 0;
@@ -117,19 +106,30 @@ header {
   border-radius: 2px;
   background: rgba(1, 243, 207, 1);
 }
-.hamburgerMenu .hamburgerMiddleBar:before {
+.hamburgerMenuContainer .hamburgerMiddleBar:before {
   transform: translateY(-10px);
   transition: all 0.5s ease;
 }
-.hamburgerMenu .hamburgerMiddleBar:after {
+.hamburgerMenuContainer .hamburgerMiddleBar:after {
   transform: translateY(10px);
   transition: all 0.5s ease;
 }
-.hamburgerMenu.navBarOpen .hamburgerMiddleBar:after,
-.hamburgerMenu.navBarOpen .hamburgerMiddleBar:before {
+.hamburgerMenuContainer.navBarOpen .hamburgerMiddleBar:after,
+.hamburgerMenuContainer.navBarOpen .hamburgerMiddleBar:before {
   width: 100%;
   transform: translateY(0) rotate(90deg);
   transition: all 0.5s ease;
+}
+.hamburgerMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  cursor: pointer;
+  background: transparent;
+  z-index: 1;
 }
 .navBar {
   position: fixed;
@@ -745,7 +745,7 @@ footer .madeBy {
     font-size: 0.8rem;
     font-weight: 100;
   }
-  .hamburgerMenu {
+  .hamburgerMenuContainer {
     display: none;
   }
 

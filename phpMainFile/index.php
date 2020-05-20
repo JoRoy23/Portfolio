@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Developer | Portfolio</title>
+    <title>Jonathan Roy | Portfolio</title>
     <link rel="stylesheet" href="../styles.css" />
     <script
       src="https://kit.fontawesome.com/b47e174771.js"
@@ -115,7 +115,7 @@
             the web). However, I have also expertise with backend development
           </p>
           <p>
-            Here are some of the programming languages, libraries and frameworks I'm using
+            Here are some of the programming languages, libraries, frameworks and technologies I'm using
             often on my daily work:
           </p>
           <div class="programLanguagesContainer">
@@ -137,6 +137,18 @@
               </li>
               <li class="programLanguage">
                 <i class="fas fa-chevron-right"></i>PHP (learning)
+              </li>
+              <li class="programLanguage">
+                <i class="fas fa-chevron-right"></i>GSAP Animation
+              </li>
+              <li class="programLanguage">
+                <i class="fas fa-chevron-right"></i>Figma
+              </li>
+              <li class="programLanguage">
+                <i class="fas fa-chevron-right"></i>Git
+              </li>
+              <li class="programLanguage">
+                <i class="fas fa-chevron-right"></i>Github
               </li>
             </ul>
           </div>
@@ -299,7 +311,7 @@
       </div>
       <!-------------------------FOOTER EMAIL BAR---------------------------->
       <div class="emailBarContainer">
-        <a href="#" class="emailAddressBar">gigah3rtz@hotmail.fr</a>
+        <a href="mailto:gigah3rtz@hotmail.fr" class="emailAddressBar">gigah3rtz@hotmail.fr</a>
         <div class="emailAddressBorder"></div>
       </div>
       <div class="madeBy">Designed & Built by Jonathan Roy</div>

@@ -1,9 +1,28 @@
+/* ==========================================
+                 FONT FACE
+============================================= */
+@font-face {
+  src: url("./font/CalibreRegular.woff");
+  font-family: "Calibre Regular";
+}
+@font-face {
+  src: url("./font/CalibreThin.woff");
+  font-family: "Calibre Thin";
+}
+@font-face {
+  src: url("./font/SFMonoLight.woff");
+  font-family: "SF Mono Light";
+}
+
+/* ==========================================
+                 ROOT/BODY
+============================================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Calibre Thin";
 }
 body {
   background: rgba(10, 25, 47, 1);
@@ -155,7 +174,8 @@ header {
   align-items: center;
   margin: 13px 15px;
   font-size: 0.9rem;
-  font-weight: 100;
+  font-family: "SF Mono Light";
+  font-weight: lighter;
   color: rgba(1, 243, 207, 1);
 }
 .navBar .navItem a {
@@ -163,8 +183,8 @@ header {
   padding: 10px 5px;
   text-decoration: none;
   font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 1.1px;
+  font-family: "SF Mono Light";
+  font-weight: lighter;
   line-height: 1.5;
   color: rgba(204, 214, 246, 1);
   transition: color 0.5s;
@@ -192,6 +212,7 @@ header {
 ============================================= */
 .homeMainContainer {
   width: 100%;
+  height: 100vh;
 }
 .homeContainer {
   width: 80%;
@@ -200,15 +221,18 @@ header {
 .homeContainer .smallText {
   margin-bottom: 20px;
   font-size: 0.8rem;
-  font-weight: 100;
+  font-weight: lighter;
+  font-family: "SF Mono Light";
+  font-weight: normal;
   color: rgba(1, 243, 207, 1);
 }
 .homeHeader span,
 .homeHeader {
   width: 100%;
   margin: 0;
-  font-size: 2.1rem;
-  font-weight: 550;
+  font-size: 2.5rem;
+  font-family: "Calibre Regular";
+  font-weight: 600;
   line-height: 1.2;
   color: rgba(204, 214, 246, 1);
 }
@@ -218,8 +242,8 @@ header {
 .homePresentation {
   width: 100%;
   margin: 40px 0 65px;
-  font-size: 0.9rem;
-  font-weight: 200;
+  font-size: 1.1rem;
+  font-weight: 100;
   line-height: 1.7;
   letter-spacing: 1.03px;
   color: rgba(136, 146, 176, 1);
@@ -230,8 +254,8 @@ header {
   text-decoration: none;
   text-transform: capitalize;
   font-size: 0.9rem;
-  font-weight: 100;
-  letter-spacing: 1.1px;
+  font-family: "SF Mono Light";
+  font-weight: lighter;
   color: rgba(1, 243, 207, 1);
   border: 1px solid rgba(1, 243, 207, 1);
   border-radius: 3px;
@@ -251,8 +275,7 @@ header {
 .skillsDescription p,
 .aboutDescription p {
   margin: 20px 0;
-  font-size: 0.9rem;
-  font-weight: 100;
+  font-size: 1.1rem;
   line-height: 1.7;
   color: rgba(136, 146, 176, 1);
 }
@@ -262,8 +285,7 @@ header {
 .aboutDescription p a {
   position: relative;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 100;
+  font-size: 1.1rem;
   color: rgba(1, 243, 207, 1);
 }
 .aboutPicture {
@@ -311,6 +333,10 @@ header {
 /* ============================================================
                           SKILLS
 =============================================================== */
+.skillsDescription p {
+  font-size: 1.1rem;
+  color: rgba(136, 146, 176, 1);
+}
 .programLanguagesContainer {
   width: 100%;
 }
@@ -320,15 +346,15 @@ header {
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
 }
+.programLanguage {
+  font-size: 0.8rem;
+  font-family: "SF Mono Light";
+  color: rgba(136, 146, 176, 1);
+}
 .programLanguage i {
   margin-right: 5px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: rgba(1, 243, 207, 1);
-}
-.programLanguage {
-  font-size: 0.9rem;
-  font-weight: 100;
-  color: rgba(136, 146, 176, 1);
 }
 /* ============================================================
                           PROJECTS
@@ -379,8 +405,9 @@ header {
 .projectsTitle {
   display: block;
   margin-top: 25px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
+  font-family: "Calibre Regular";
   letter-spacing: 1.1px;
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
@@ -392,7 +419,7 @@ header {
 }
 .projectDescription {
   margin: 15px 0 40px;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   line-height: 1.7;
   color: rgba(136, 146, 176, 1);
 }
@@ -402,8 +429,10 @@ header {
 }
 .languageUsed span {
   margin-left: 10px;
-  font-size: 0.8rem;
-  color: rgba(204, 214, 246, 1);
+  font-size: 0.7rem;
+  font-family: "SF Mono Light";
+  font-weight: lighter;
+  color: rgba(204, 214, 246, 0.3);
 }
 .languageUsed span:first-of-type {
   margin: 0;
@@ -418,6 +447,9 @@ header {
   width: 80%;
   margin: 115px auto 0;
   padding-top: 85px;
+}
+#aboutMainContainer {
+  margin: 0 auto;
 }
 .skillsTitleContainer,
 .projectsTitleContainer,
@@ -436,6 +468,7 @@ header {
   display: flex;
   align-items: baseline;
   font-size: 1.5rem;
+  font-family: "Calibre Regular";
   letter-spacing: 1.1px;
   color: rgba(204, 214, 246, 1);
 }
@@ -444,7 +477,9 @@ header {
 .aboutTitleContainer h1 span,
 .contactTitleContainer h1 span {
   margin-right: 10px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  font-family: "SF Mono Light";
+  font-weight: lighter;
   color: rgba(1, 243, 207, 1);
 }
 .skillsTitleBorder,
@@ -453,7 +488,7 @@ header {
 .contactTitleBorder {
   flex-grow: 1;
   height: 1px;
-  background: rgba(136, 146, 176, 1);
+  background: rgba(136, 146, 176, 0.3);
   margin-left: 10px;
 }
 .projectsContainer,
@@ -465,15 +500,14 @@ header {
 }
 .contactInformation {
   width: 100%;
-  font-size: 0.9rem;
-  letter-spacing: 1.1px;
+  font-size: 1.1rem;
+  font-family: "Calibre Regular";
   line-height: 1.7;
   color: rgba(204, 214, 246, 1);
 }
 .contactQuestions {
   margin: 20px 0 40px;
-  font-size: 0.8rem;
-  font-weight: 200;
+  font-size: 1.1rem;
   line-height: 1.7;
   letter-spacing: 1.03px;
   color: rgba(136, 146, 176, 1);
@@ -481,8 +515,7 @@ header {
 .contactQuestions a {
   position: relative;
   text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 200;
+  font-size: 1.1rem;
   line-height: 1.7;
   letter-spacing: 1.03px;
   color: rgba(1, 243, 207, 1);
@@ -507,7 +540,7 @@ header {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 35px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 .contactSection {
   position: relative;
@@ -545,7 +578,7 @@ header {
   display: block;
   margin: -23px 0 0 -1px;
   font-size: 0.8rem;
-  letter-spacing: 1.1px;
+  font-family: "SF Mono Light";
   color: rgba(204, 214, 246, 1);
   transition: margin 0.5s;
 }
@@ -571,8 +604,9 @@ header {
 .contactSendButton {
   padding: 11px 30px;
   font-size: 0.9rem;
+  font-family: "SF Mono Light";
+  font-weight: lighter;
   text-transform: uppercase;
-  letter-spacing: 1.1px;
   cursor: pointer;
   color: rgba(1, 243, 207, 1);
   background: transparent;
@@ -617,7 +651,7 @@ header {
   padding: 10px;
 }
 .socialIconsContainer a i {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: rgba(204, 214, 246, 1);
   transition: color 0.2s ease;
 }
@@ -649,9 +683,10 @@ header {
 .emailAddressBar {
   padding: 10px;
   text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 100;
-  letter-spacing: 3px;
+  font-size: 0.7rem;
+  font-weight: lighter;
+  font-family: "SF Mono Light";
+  letter-spacing: 2.5px;
   color: rgba(136, 146, 176, 1);
   transition: all 0.2s ease-in-out;
 }
@@ -674,9 +709,8 @@ footer .madeBy {
   width: 100%;
   margin-bottom: 30px;
   text-align: center;
-  font-size: 0.7rem;
-  font-weight: 100;
-  letter-spacing: 1.3px;
+  font-size: 0.72rem;
+  font-family: "SF Mono Light";
   color: rgba(136, 146, 176, 1);
 }
 /* ==========================================
@@ -756,18 +790,18 @@ footer .madeBy {
   }
   .homeContainer .smallText {
     margin-bottom: 20px;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .homeHeader span,
   .homeHeader {
     width: 95%;
-    font-size: 4rem;
+    font-size: 4.4rem;
+    font-weight: 900;
   }
   .homePresentation {
     width: 85%;
     margin: 50px 0 80px;
-    font-size: 1rem;
-    font-weight: 200;
+    font-size: 1.2rem;
     line-height: 1.7;
   }
   .getInTouch {
@@ -775,9 +809,6 @@ footer .madeBy {
   }
 
   /* FOR THE ABOUT */
-  #aboutMainContainer {
-    margin: 265px auto 0;
-  }
   .aboutPicture {
     float: right;
     margin: 0px 20px;
@@ -794,21 +825,21 @@ footer .madeBy {
   }
   .aboutDescription p span,
   .aboutDescription p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   /* FOR THE SKILLS */
   .skillsDescription p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .programLanguagesContainer ul {
     grid-gap: 20px;
   }
-  .programLanguage i {
+  .programLanguage {
     font-size: 0.9rem;
   }
-  .programLanguage {
-    font-size: 1rem;
+  .programLanguage i {
+    font-size: 0.8rem;
   }
 
   /* FOR THE PROJECTS */
@@ -820,6 +851,12 @@ footer .madeBy {
   .projectDescriptionContainer {
     width: 48%;
     margin-top: 0;
+  }
+  .projectsTitle {
+    font-size: 1.4rem;
+  }
+  .projectDescription {
+    font-size: 1.2rem;
   }
 
   /* FOR THE CONTACT */
@@ -847,7 +884,7 @@ footer .madeBy {
   .contactInformation,
   .contactQuestions,
   .contactQuestions a {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .contactTextArea {
     height: 150px;
@@ -912,6 +949,10 @@ footer .madeBy {
   .homeContainer {
     width: 750px;
   }
+  .homeHeader span,
+  .homeHeader {
+    font-size: 5.2rem;
+  }
 
   /* FOR THE CONTACT */
   #projectsMainContainer,
@@ -930,10 +971,5 @@ footer .madeBy {
 @media screen and (min-height: 1280px) {
   .homeContainer {
     margin: 330px auto 0;
-  }
-
-  /* FOR THE ABOUT */
-  #aboutMainContainer {
-    margin: 435px auto 0;
   }
 }

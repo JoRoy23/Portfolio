@@ -500,7 +500,7 @@ header {
 }
 .contactInformation {
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-family: "Calibre Regular";
   line-height: 1.7;
   color: rgba(204, 214, 246, 1);
@@ -628,7 +628,10 @@ header {
   padding: 20px 0;
   margin-bottom: 50px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  font-family: "SF Mono Light";
+  line-height: 1.7;
   color: rgba(204, 214, 246, 1);
   background: red;
 }
@@ -681,6 +684,7 @@ header {
   display: none;
 }
 .emailAddressBar {
+  height: 100%;
   padding: 10px;
   text-decoration: none;
   font-size: 0.7rem;
@@ -688,12 +692,6 @@ header {
   font-family: "SF Mono Light";
   letter-spacing: 2.5px;
   color: rgba(136, 146, 176, 1);
-  transition: all 0.2s ease-in-out;
-}
-.emailAddressBar:hover {
-  transform: translateX(-5px) rotate(0deg);
-  color: rgba(1, 243, 207, 1);
-  transition: all 0.2s ease-in-out;
 }
 .emailAddressBorder {
   width: 120px;
@@ -891,7 +889,7 @@ footer .madeBy {
   }
   .send,
   .error {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   /* FOOTER SOCIAL ICONS BAR */
@@ -937,6 +935,14 @@ footer .madeBy {
   /* FOOTER EMAIL BAR */
   .emailBarContainer {
     display: flex;
+  }
+  .emailAddressBar {
+    transition: color 0.2s ease-in-out;
+  }
+  .emailAddressBar:hover {
+    transform: translateX(-5px);
+    color: rgba(1, 243, 207, 1);
+    transition: color 0.2s ease-in-out;
   }
 
   /* FOR THE MADE BY FOOTER */

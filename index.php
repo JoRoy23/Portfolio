@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonathan Roy | Portfolio</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="icon" href="images/logo.png" />
+    <link rel="stylesheet" href="styles.css" />
     <script
       src="https://kit.fontawesome.com/b47e174771.js"
       crossorigin="anonymous"
@@ -21,7 +22,8 @@
     </div>
     <!-------------------------NAVIGATION BAR---------------------------->
     <header>
-      <a href="" class="logo" title="logo"><svg width="42" height="49" viewBox="0 0 42 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="backdrop"></div>
+      <a href="index.php" class="logo" title="logo"><svg width="42" height="49" viewBox="0 0 42 49" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 12.6779L21 1.15412L41 12.6779V35.7221L21 47.2459L1 35.7221V12.6779Z" stroke="#01F3CF" stroke-width="2"/>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M20.6668 30.5188C20.6668 31.7366 20.2773 32.7137 19.4981 33.4501C18.719 34.1723 17.69 34.5333 16.4111 34.5333C15.1175 34.5333 14.0811 34.1652 13.302 33.4288C12.5229 32.6783 12.1334 31.6588 12.1334 30.3701H14.1399C14.1546 31.0923 14.3457 31.68 14.7132 32.1331C15.0954 32.5863 15.6614 32.8128 16.4111 32.8128C17.1608 32.8128 17.7194 32.6004 18.0869 32.1756C18.4544 31.7366 18.6382 31.1844 18.6382 30.5188L18.6579 14.9333H23.6192C25.3539 14.9333 26.6695 15.3369 27.5662 16.1441C28.4777 16.9512 28.9334 17.992 28.9334 19.2665C28.9334 20.4985 28.4924 21.5251 27.6103 22.3464C26.743 23.1536 25.4127 23.5571 23.6192 23.5571H20.6645L20.6668 30.5188ZM26.0889 21.2631C25.5597 21.7304 24.7365 21.9641 23.6192 21.9641H20.6645V16.5264H23.6192C25.7949 16.5264 26.8827 17.4398 26.8827 19.2665C26.8827 20.1303 26.6181 20.7958 26.0889 21.2631Z" fill="#01F3CF"/>
         </svg>                
@@ -112,7 +114,7 @@
         <div class="skillsDescription">
           <p>
             The main area of my expertise is front end development (client side of
-            the web). However, I have also expertise with backend development
+            the web). However, I have also expertise with backend development.
           </p>
           <p>
             Here are some of the programming languages, libraries, frameworks and technologies I'm using
@@ -173,7 +175,7 @@
               </ul>
             </div> 
             <a href="#" class="projectsTitle">Coffee Online Store</a>
-            <p class="projectDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, nisi doloremque rerum, eaque vel eveniet excepturi quam eligendi nesciunt sit, hic magni vero. Neque iusto molestiae expedita ducimus tempora eveniet.</p>
+            <p class="projectDescription">A coffee beans eCommerce website where you can buy merchandises online and find information about our four shops located in Bali, whether it's about the menu, opening hours, etc...</p>
             <div class="languageUsed"><span>JavaScript</span><span>jQuery</span><span>PHP</span><span>GSAP</span></div>
           </div>
           <div class="projectDescriptionContainer fadeIn">
@@ -184,8 +186,8 @@
                 <li><a href="#" target="_blank" title="Project Link"><i class="fa fa-external-link" aria-hidden="true"></i></a></li>
               </ul>
             </div> 
-            <a href="#" class="projectsTitle">Landing Page</a>
-            <p class="projectDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, nisi doloremque rerum, eaque vel eveniet excepturi quam eligendi nesciunt sit, hic magni vero. Neque iusto molestiae expedita ducimus tempora eveniet.</p>
+            <a href="#" class="projectsTitle">Animal Rescue</a>
+            <p class="projectDescription">A refuge where we give a second chance to animals that have been mistrated. Come find your next life companion!</p>
             <div class="languageUsed"><span>JavaScript</span><span>jQuery</span><span>PHP</span><span>GSAP</span></div>
           </div>
         </div>
@@ -205,7 +207,7 @@
           I am interested in freelance opportunities - especially ambitious
           projects. However, if you have other questions or requests, don't
           hesitate to contact me with the form below or my
-          <a href="#">email address</a>.
+          <a href="mailto:gigah3rtz@hotmail.fr">email address</a>.
         </p>
         <?php 
           if(!isset($_GET["form"])){
@@ -226,7 +228,7 @@
             }
           }
         ?>
-        <form action="../contact.php" class="contactGrid" method="POST">
+        <form action="contact.php" class="contactGrid" method="POST">
           <div class="contactSection">
           <?php 
             if(isset($_GET['firstName'])){
@@ -319,6 +321,6 @@
     <script src="https://kit.fontawesome.com/6DCDAF8B-B6E7-467F-8643-EC6566BBDE37.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
-    <script type="text/javascript" src="../portfolio.js"></script>
+    <script type="text/javascript" src="portfolio.js"></script>
   </body>
 </html>

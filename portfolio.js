@@ -6,6 +6,8 @@ const hamburgerIcon = document.querySelector(".hamburgerMenu");
 const showNavBar = document.querySelector(".navBar");
 const navLinks = document.querySelectorAll(".navItem");
 const body = document.querySelector("body");
+const backdrop = document.querySelector(".backdrop");
+const header = document.querySelector("header");
 
 /* Open/close navigation bar when clicking on the hamburger icon */
 hamburgerIcon.addEventListener("click", openCloseNavBar);
@@ -13,6 +15,7 @@ hamburgerIcon.addEventListener("click", openCloseNavBar);
 function openCloseNavBar() {
   showNavBar.classList.toggle("viewNavBar");
   body.classList.toggle("viewNavBar");
+  backdrop.classList.toggle("viewNavBar");
 }
 
 /* Switch icon when clicking on the hamburger menu*/
@@ -22,15 +25,19 @@ function switchIcon() {
   hamburgerContainer.classList.toggle("navBarOpen");
 }
 
-/* When clicking outside the window or on an element inside of it
+/* When clicking/touching outside the window or on an element inside of it
 that is different then the hamburger icon */
-window.addEventListener("click", function (event) {
+window.addEventListener("touchstart", closeNavBar);
+window.addEventListener("click", closeNavBar);
+
+function closeNavBar(event) {
   if (event.target !== showNavBar && event.target !== hamburgerIcon) {
     showNavBar.classList.remove("viewNavBar");
     hamburgerContainer.classList.remove("navBarOpen");
     body.classList.remove("viewNavBar");
+    backdrop.classList.remove("viewNavBar");
   }
-});
+}
 
 /* Sticky header when we scroll back */
 let previousScrollPos = window.pageYOffset;
@@ -40,7 +47,7 @@ window.addEventListener("scroll", () => {
   if (previousScrollPos > currentScrollPos) {
     let header = (document.querySelector("header").style.top = "0");
   } else {
-    if (previousScrollPos > "100") {
+    if (previousScrollPos > "100" && body.classList[0] !== "viewNavBar") {
       let header = (document.querySelector("header").style.top = "-200px");
     }
   }
@@ -50,7 +57,7 @@ window.addEventListener("scroll", () => {
 /* Header shadow/color for the navigation bar */
 window.addEventListener("scroll", () => {
   let currentScrollPos = window.pageYOffset;
-  let header = document.querySelector("header");
+  const header = document.querySelector("header");
   if (currentScrollPos === 0) {
     header.style.boxShadow = "none";
     header.style.height = "6rem";
@@ -175,7 +182,7 @@ tl.from(".emailBarContainer", { duration: 1, opacity: 0 }, "-=1");
 /* ============================================================
                        FADE IN ANIMATION
 =============================================================== */
-/*  Intersection observer for the fade in animation on each title and container */
+/* Intersection observer for the fade in animation on each title and container */
 const faders = document.querySelectorAll(".fadeIn");
 const sliders = document.querySelectorAll(".slideIn");
 

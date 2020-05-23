@@ -2,6 +2,10 @@
                  FONT FACE
 ============================================= */
 @font-face {
+  src: url("./font/CalibreMedium.woff");
+  font-family: "Calibre Medium";
+}
+@font-face {
   src: url("./font/CalibreRegular.woff");
   font-family: "Calibre Regular";
 }
@@ -27,9 +31,9 @@
 body {
   background: rgba(10, 25, 47, 1);
 }
+/*
 body.viewNavBar {
-  height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 /* ==========================================
                    PRELOADER
@@ -45,6 +49,9 @@ body.viewNavBar {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.logoLoader {
+  transform: translateY(-80px);
 }
 .logoLoader path:nth-child(1) {
   stroke-dasharray: 321.82427978515625;
@@ -67,6 +74,7 @@ body.viewNavBar {
     opacity: 1;
   }
 }
+
 /* ==========================================
                    HEADER
 ============================================= */
@@ -83,6 +91,20 @@ header {
   background: rgba(10, 25, 47, 1);
   box-shadow: none;
   transition: all 0.2s ease-in-out;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: background 0.5s ease-in-out;
+}
+.backdrop.viewNavBar {
+  right: 0;
+  background: rgba(10, 25, 47, 0.7);
+  transition: background 0.5s ease-in-out;
 }
 .logo {
   display: block;
@@ -101,11 +123,11 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 10;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease;
 }
 .hamburgerMenuContainer.navBarOpen {
   transform: rotate(135deg);
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease;
 }
 .hamburgerMenuContainer .hamburgerMiddleBar {
   position: relative;
@@ -147,8 +169,6 @@ header {
   height: 100%;
   content: "";
   cursor: pointer;
-  background: transparent;
-  z-index: 1;
 }
 .navBar {
   position: fixed;
@@ -161,12 +181,13 @@ header {
   align-items: center;
   padding: 30px 40px;
   list-style: none;
+  z-index: 5;
   background: rgba(23, 42, 69, 1);
-  transition: right 0.5s;
+  transition: right 0.5s ease-in-out;
 }
 .navBar.viewNavBar {
   right: 0;
-  transition: right 0.5s;
+  transition: right 0.5s ease-in-out;
 }
 .navBar .navItem {
   display: flex;
@@ -216,7 +237,7 @@ header {
 }
 .homeContainer {
   width: 80%;
-  margin: 140px auto 0;
+  margin: 160px auto 0;
 }
 .homeContainer .smallText {
   margin-bottom: 20px;
@@ -231,9 +252,9 @@ header {
   width: 100%;
   margin: 0;
   font-size: 2.5rem;
-  font-family: "Calibre Regular";
-  font-weight: 600;
-  line-height: 1.2;
+  font-family: "Calibre Medium";
+  font-weight: lighter;
+  line-height: 1.1;
   color: rgba(204, 214, 246, 1);
 }
 .homeHeader span {
@@ -241,10 +262,10 @@ header {
 }
 .homePresentation {
   width: 100%;
-  margin: 40px 0 65px;
+  margin: 30px 0 65px;
   font-size: 1.1rem;
   font-weight: 100;
-  line-height: 1.7;
+  line-height: 1.3;
   letter-spacing: 1.03px;
   color: rgba(136, 146, 176, 1);
 }
@@ -276,7 +297,7 @@ header {
 .aboutDescription p {
   margin: 20px 0;
   font-size: 1.1rem;
-  line-height: 1.7;
+  line-height: 1.3;
   color: rgba(136, 146, 176, 1);
 }
 .aboutDescription p:first-of-type {
@@ -315,8 +336,8 @@ header {
 }
 .aboutPicture:after {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 5px;
+  left: 5px;
   content: "";
   width: 100%;
   height: 100%;
@@ -326,8 +347,8 @@ header {
   transition: all 0.2s ease-in-out;
 }
 .aboutPicture:hover:after {
-  top: 5px;
-  left: 5px;
+  top: 2px;
+  left: 2px;
   transition: all 0.2s ease-in-out;
 }
 /* ============================================================
@@ -335,6 +356,7 @@ header {
 =============================================================== */
 .skillsDescription p {
   font-size: 1.1rem;
+  line-height: 1.3;
   color: rgba(136, 146, 176, 1);
 }
 .programLanguagesContainer {
@@ -420,7 +442,7 @@ header {
 .projectDescription {
   margin: 15px 0 40px;
   font-size: 1.1rem;
-  line-height: 1.7;
+  line-height: 1.3;
   color: rgba(136, 146, 176, 1);
 }
 .languageUsed {
@@ -502,28 +524,25 @@ header {
   width: 100%;
   font-size: 1.2rem;
   font-family: "Calibre Regular";
-  line-height: 1.7;
+  line-height: 1.3;
   color: rgba(204, 214, 246, 1);
 }
 .contactQuestions {
   margin: 20px 0 40px;
   font-size: 1.1rem;
-  line-height: 1.7;
-  letter-spacing: 1.03px;
+  line-height: 1.3;
   color: rgba(136, 146, 176, 1);
 }
 .contactQuestions a {
   position: relative;
   text-decoration: none;
   font-size: 1.1rem;
-  line-height: 1.7;
-  letter-spacing: 1.03px;
   color: rgba(1, 243, 207, 1);
 }
 .aboutDescription p a:before,
 .contactQuestions a:before {
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 0;
   content: "";
   width: 0%;
@@ -560,7 +579,7 @@ header {
   width: 100%;
   height: 100%;
   padding: 0 10px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: rgba(204, 214, 246, 1);
   border: none;
   background: transparent;
@@ -800,7 +819,7 @@ footer .madeBy {
     width: 85%;
     margin: 50px 0 80px;
     font-size: 1.2rem;
-    line-height: 1.7;
+    line-height: 1.5;
   }
   .getInTouch {
     padding: 18px 37px;
@@ -810,25 +829,27 @@ footer .madeBy {
   .aboutPicture {
     float: right;
     margin: 0px 20px;
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
   }
   .aboutPicture:after {
-    top: 13px;
-    left: 13px;
+    top: 6px;
+    left: 6px;
   }
   .aboutPicture:hover:after {
-    top: 10px;
-    left: 10px;
+    top: 3px;
+    left: 3px;
   }
   .aboutDescription p span,
   .aboutDescription p {
     font-size: 1.2rem;
+    line-height: 1.5;
   }
 
   /* FOR THE SKILLS */
   .skillsDescription p {
     font-size: 1.2rem;
+    line-height: 1.5;
   }
   .programLanguagesContainer ul {
     grid-gap: 20px;
@@ -855,6 +876,7 @@ footer .madeBy {
   }
   .projectDescription {
     font-size: 1.2rem;
+    line-height: 1.5;
   }
 
   /* FOR THE CONTACT */
@@ -883,6 +905,7 @@ footer .madeBy {
   .contactQuestions,
   .contactQuestions a {
     font-size: 1.2rem;
+    line-height: 1.5;
   }
   .contactTextArea {
     height: 150px;

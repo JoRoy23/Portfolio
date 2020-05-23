@@ -771,6 +771,9 @@ footer .madeBy {
 }
 @media screen and (min-width: 768px) {
   /* HEADER */
+  .backdrop {
+    display: none;
+  }
   .logo {
     margin-left: 40px;
   }

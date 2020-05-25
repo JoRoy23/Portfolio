@@ -236,7 +236,7 @@ header {
 }
 .homeContainer {
   width: 80%;
-  margin: 160px auto 0;
+  margin: 150px auto 0;
 }
 .homeContainer .smallText {
   margin-bottom: 20px;
@@ -807,7 +807,6 @@ footer .madeBy {
   /*HOME CONTENT */
   .homeContainer {
     width: 70%;
-    margin: 240px auto 0;
   }
   .homeContainer .smallText {
     margin-bottom: 20px;
@@ -1005,15 +1004,6 @@ footer .madeBy {
   .aboutContainer,
   .contactContainer {
     width: 750px;
-  }
-}
-
-@media screen and (min-height: 650px) and (min-width: 769px) {
-  .homeContainer {
-    margin: 160px auto 0;
-  }
-  .homePresentation {
-    margin: 20px 0 60px;
   }
 }
 

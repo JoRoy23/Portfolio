@@ -63,7 +63,7 @@
           Jonathan Roy. <br /><span> I build things for the web.</span>
         </h1>
         <p class="homePresentation">
-          I'm a mechanical engineer and self-taught fullstack developer based in
+          I'm a mechanical engineer and self-taught front-end developer based in
           Montreal, QC specializing in building exceptional applications and
           websites.
         </p>

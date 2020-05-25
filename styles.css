@@ -759,6 +759,7 @@ footer .madeBy {
     font-size: 2.6rem;
   }
 }
+
 @media screen and (min-width: 500px) {
   /* HOME CONTENT */
   .homeHeader span,
@@ -769,6 +770,7 @@ footer .madeBy {
     width: 80%;
   }
 }
+
 @media screen and (min-width: 768px) {
   /* HEADER */
   .backdrop {
@@ -975,7 +977,13 @@ footer .madeBy {
     margin: 80px 0 40px;
   }
 }
+
 @media screen and (min-width: 990px) {
+  /* PRELOADER */
+  .logoLoader {
+    transform: translateY(0px);
+  }
+
   /*HOME CONTENT */
   .homeContainer {
     width: 750px;
@@ -999,6 +1007,16 @@ footer .madeBy {
     width: 750px;
   }
 }
+
+@media screen and (min-height: 650px) and (min-width: 769px) {
+  .homeContainer {
+    margin: 160px auto 0;
+  }
+  .homePresentation {
+    margin: 20px 0 60px;
+  }
+}
+
 @media screen and (min-height: 1280px) {
   .homeContainer {
     margin: 330px auto 0;

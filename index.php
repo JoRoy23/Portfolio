@@ -305,7 +305,7 @@
       <div class="socialIconsBar">
         <div class="socialIconsContainer">
           <a href="https://github.com/JoRoy23" target="_blank"><i class="fab fa-github" title="github"></i></a>
-          <a href="https://www.linkedin.com/in/jonathan-roy-5b9922139/" target="_blank"><i class="fab fa-linkedin-in" title="linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/roy-jonathan/" target="_blank"><i class="fab fa-linkedin-in" title="linkedin"></i></a>
           <a href="https://www.facebook.com/jonathan.roy.104" target="_blank"><i class="fab fa-facebook-f" title="facebook"></i></a>
           <a href="https://twitter.com/home" target="_blank"><i class="fab fa-twitter" title="twitter"></i></a>
         </div>

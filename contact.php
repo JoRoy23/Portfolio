@@ -27,7 +27,7 @@
                     exit();
                 }
                 else{
-                    $mailTo = "gigah3rtz@hotmail.fr";
+                    $mailTo = "roy.jonathan@mail.com";
                     $headers = "From: ".$email;
                     $txt = "You have received an e-mail from ".$firstName." ".$lastName.".\n\n".$message;
 

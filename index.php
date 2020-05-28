@@ -207,7 +207,7 @@
           I am interested in freelance opportunities - especially ambitious
           projects. However, if you have other questions or requests, don't
           hesitate to contact me with the form below or my
-          <a href="mailto:gigah3rtz@hotmail.fr">email address</a>.
+          <a href="mailto:roy.jonathan@mail.com">email address</a>.
         </p>
         <?php 
           if(!isset($_GET["form"])){
@@ -313,7 +313,7 @@
       </div>
       <!-------------------------FOOTER EMAIL BAR---------------------------->
       <div class="emailBarContainer">
-        <a href="mailto:gigah3rtz@hotmail.fr" class="emailAddressBar">gigah3rtz@hotmail.fr</a>
+        <a href="mailto:roy.jonathan@mail.com" class="emailAddressBar">roy.jonathan@mail.com</a>
         <div class="emailAddressBorder"></div>
       </div>
       <div class="madeBy">Designed & Built by Jonathan Roy</div>

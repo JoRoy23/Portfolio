@@ -1,0 +1,226 @@
+/* ====================================
+         COLORS CONFIGURATION
+ ====================================== */
+$colors: (
+  primary: rgba(10, 25, 47, 1),
+  secondary: rgba(136, 146, 176, 1),
+  primary__accent: rgba(1, 243, 207, 1),
+  secondary__accent: rgba(204, 214, 246, 1),
+  preload: rgba(2, 12, 27, 1),
+  navbar__mobile: rgba(23, 42, 69, 1),
+  backdrop: rgba(10, 25, 47, 0.7),
+);
+
+/* ====================================
+         PRELOAD CONFIGURATION
+ ====================================== */
+%preload__animation {
+  opacity: 0;
+  animation: lineAnimation 2s ease forwards;
+  animation-delay: 2s;
+}
+
+/* ====================================
+         HAMBURGER CONFIGURATION
+ ====================================== */
+@mixin hamburger($position, $width, $height, $br, $bgColor) {
+  position: $position;
+  width: $width;
+  height: $height;
+  border-radius: $br;
+  background: $bgColor;
+}
+
+@mixin hamburger__animation($transform, $transition) {
+  transform: $transform;
+  transition: $transition;
+}
+
+/* ====================================
+         NAVBAR CONFIGURATION
+ ====================================== */
+@mixin nav-item($display, $fs, $fw, $ff, $color) {
+  display: $display;
+  font-size: $fs;
+  font-weight: $fw;
+  font-family: $ff;
+  color: $color;
+}
+
+/* ====================================
+         SUBTITLE CONFIGURATION
+ ====================================== */
+%subtitle {
+  width: 80%;
+  margin: 115px auto 0;
+  padding-top: 85px;
+}
+
+%subtitle__title-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+%subtitle__title-container--appear {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.3s ease-in;
+}
+
+%subtitle__title {
+  display: flex;
+  align-items: baseline;
+  font-size: 1.5rem;
+  font-family: "Calibre Regular";
+  letter-spacing: 1.1px;
+  color: map-get($colors, secondary__accent);
+}
+
+%subtitle__span {
+  margin-right: 10px;
+  font-size: 1.25rem;
+  font-family: "SF Mono Light";
+  font-weight: lighter;
+  color: map-get($colors, primary__accent);
+}
+
+%subtitle__underline {
+  flex-grow: 1;
+  height: 1px;
+  background: rgba(136, 146, 176, 0.3);
+  margin-left: 10px;
+}
+
+%subtitle__main-container {
+  width: 100%;
+  margin: 40px auto;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+%subtitle__main-container--fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-in;
+}
+
+/* ====================================
+         HOME TEXT CONFIGURATION
+ ====================================== */
+@mixin home__text($fs, $fw, $margin, $color) {
+  font-size: $fs;
+  font-weight: $fw;
+  margin: $margin;
+  color: $color;
+}
+
+/* ====================================
+         PICTURE CONFIGURATION
+ ====================================== */
+@mixin picture($pos, $top, $left, $content, $width, $height) {
+  position: $pos;
+  top: $top;
+  left: $left;
+  content: $content;
+  width: $width;
+  height: $height;
+}
+
+/* ====================================
+           FORM CONFIGURATION
+ ====================================== */
+%form__input-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 1rem;
+  color: map-get($colors, secondary__accent);
+  border: none;
+  background: transparent;
+  z-index: 1;
+}
+
+%form__underline--animation {
+  width: 100%;
+  transition: width 1s;
+}
+
+%form__response {
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: bold;
+  font-family: "SF Mono Light";
+  line-height: 1.7;
+  color: map-get($colors, secondary__accent);
+}
+
+/* ====================================
+      SOCIAL ICONS CONFIGURATION
+ ====================================== */
+@mixin social-icons--transition($color, $transition) {
+  color: $color;
+  transition: $transition;
+}
+
+/* ====================================
+         BUTTON CONFIGURATION
+ ====================================== */
+%button {
+  display: inline-block;
+  font-family: "SF Mono Light";
+  font-weight: lighter;
+  color: map-get($colors, primary__accent);
+  border: 1px solid map-get($colors, primary__accent);
+  border-radius: 3px;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: background 0.5s;
+}
+
+/* ====================================
+        MEDIA QUERIE CONFIGURATION
+ ====================================== */
+$ipad: 768px;
+$iphone: 379px;
+$bigger-phone: 500px;
+$desktop: 990px;
+$kindle: 1280px;
+
+@mixin iphone {
+  @media screen and(min-width: #{$iphone}) {
+    @content;
+  }
+}
+
+@mixin bigger-phone {
+  @media screen and(min-width: #{$bigger-phone}) {
+    @content;
+  }
+}
+
+@mixin ipad {
+  @media screen and(min-width: #{$ipad}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and(min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin kindle {
+  @media screen and(min-height: #{$kindle}) {
+    @content;
+  }
+}

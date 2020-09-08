@@ -1,0 +1,1121 @@
+@import "configuration";
+
+/* ================================
+            FONT FACE
+=================================== */
+@font-face {
+  src: url("../font/CalibreMedium.woff");
+  font-family: "Calibre Medium";
+}
+
+@font-face {
+  src: url("../font/CalibreRegular.woff");
+  font-family: "Calibre Regular";
+}
+
+@font-face {
+  src: url("../font/CalibreThin.woff");
+  font-family: "Calibre Thin";
+}
+
+@font-face {
+  src: url("../font/SFMonoLight.woff");
+  font-family: "SF Mono Light";
+}
+
+/* ===============================
+            ROOT/BODY
+  =============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Calibre Thin";
+}
+
+.body {
+  background: map-get($colors, primary);
+}
+
+.body--freeze {
+  overflow: hidden;
+}
+
+/* ================================
+               PRELOADER
+  ================================= */
+.preload {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: map-get($colors, preload);
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .preload__logo {
+    transform: translateY(-80px);
+    @include desktop {
+      transform: translateY(0px);
+    }
+  }
+
+  .preload__logo path:nth-child(1) {
+    stroke-dasharray: 321.82427978515625;
+    stroke-dashoffset: 321.82427978515625;
+    animation: lineAnimation 2s ease forwards;
+  }
+
+  .preload__logo path:nth-child(2),
+  .preload__logo path:nth-child(3) {
+    @extend %preload__animation;
+  }
+
+  @keyframes lineAnimation {
+    to {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+}
+
+/* ==============================
+               HEADER
+  =============================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: map-get($colors, primary);
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+
+  &__logo {
+    display: block;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    color: rgba(1, 243, 207, 1);
+    text-shadow: 3px 0px 0px map-get($colors, secondary);
+    @include ipad {
+      margin-left: 40px;
+    }
+  }
+
+  .backdrop {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: background 0.5s ease-in-out;
+    @include ipad {
+      display: none;
+    }
+  }
+
+  .backdrop--visible {
+    right: 0;
+    background: map-get($colors, backdrop);
+    transition: background 0.5s ease-in-out;
+  }
+
+  .hamburger {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 20px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: transform 0.5s ease;
+    @include ipad {
+      display: none;
+    }
+
+    &__middle-bar {
+      @include hamburger(
+        relative,
+        60%,
+        2px,
+        2px,
+        map-get($colors, primary__accent)
+      );
+    }
+
+    &__middle-bar:after,
+    &__middle-bar:before {
+      @include hamburger(
+        absolute,
+        120%,
+        2px,
+        2px,
+        map-get($colors, primary__accent)
+      );
+      top: 0;
+      right: 0;
+      content: "";
+    }
+
+    &__middle-bar:before {
+      @include hamburger__animation(translateY(-10px), all 0.5s ease);
+    }
+
+    &__middle-bar:after {
+      @include hamburger__animation(translateY(10px), all 0.5s ease);
+    }
+
+    &__menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      cursor: pointer;
+    }
+  }
+
+  .hamburger--nav-open {
+    @include hamburger__animation(rotate(135deg), transform 0.5s ease);
+
+    .hamburger__middle-bar:after,
+    .hamburger__middle-bar:before {
+      @include hamburger__animation(translateY(0) rotate(90deg), all 0.5s ease);
+      width: 100%;
+    }
+  }
+
+  .nav-bar {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 40px;
+    list-style: none;
+    z-index: 5;
+    background: map-get($colors, navbar__mobile);
+    transition: right 0.5s ease-in-out;
+    @include ipad {
+      position: static;
+      flex-direction: row;
+      height: 0;
+      background: map-get($colors, primary);
+    }
+
+    &__nav-item {
+      flex-direction: column;
+      align-items: center;
+      margin: 13px 15px;
+      @include nav-item(
+        flex,
+        0.9rem,
+        lighter,
+        "SF Mono Light",
+        map-get($colors, primary__accent)
+      );
+      @include ipad {
+        flex-direction: row;
+        margin: 20px 15px;
+        font-size: 0.8rem;
+      }
+
+      a {
+        padding: 10px 5px;
+        text-decoration: none;
+        line-height: 1.5;
+        transition: color 0.5s;
+        @include nav-item(
+          inline-block,
+          1rem,
+          lighter,
+          "SF Mono Light",
+          map-get($colors, secondary__accent)
+        );
+        @include ipad {
+          font-size: 0.8rem;
+          margin-left: 5px;
+        }
+      }
+
+      a:hover {
+        color: map-get($colors, primary__accent);
+        transition: color 0.5s;
+      }
+    }
+
+    &__nav-item:last-child a {
+      margin-top: 30px;
+      padding: 13px 45px;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      border: 1px solid map-get($colors, primary__accent);
+      color: map-get($colors, primary__accent);
+      transition: background 0.5s;
+      @include ipad {
+        margin-top: 0;
+        padding: 10px 15px;
+        font-size: 0.8rem;
+        font-weight: 100;
+      }
+    }
+
+    &__nav-item:last-child a:hover {
+      background: rgba(1, 243, 207, 0.1);
+      transition: background 0.5s;
+    }
+  }
+
+  .nav-bar--open {
+    right: 0;
+    transition: right 0.5s ease-in-out;
+  }
+}
+
+/* ==================================
+            HOME CONTENT
+  =================================== */
+.home {
+  width: 100%;
+  height: 100vh;
+
+  &__container {
+    width: 80%;
+    height: 100vh;
+    margin: 150px auto 0;
+    @include ipad {
+      width: 70%;
+    }
+    @include desktop {
+      width: 750px;
+    }
+    @include kindle {
+      margin: 330px auto 0;
+    }
+
+    .home__subtitle {
+      font-family: "SF Mono Light";
+      @include home__text(
+        0.8rem,
+        normal,
+        0 0 20px,
+        map-get($colors, primary__accent)
+      );
+      @include ipad {
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    .home__title span,
+    .home__title {
+      width: 100%;
+      line-height: 1.1;
+      font-family: "Calibre Medium";
+      @include home__text(
+        2.5rem,
+        lighter,
+        0,
+        map-get($colors, secondary__accent)
+      );
+      @include iphone {
+        font-size: 2.6rem;
+      }
+      @include bigger-phone {
+        font-size: 3.3rem;
+      }
+      @include ipad {
+        width: 95%;
+        font-size: 4.4rem;
+        font-weight: 900;
+      }
+      @include desktop {
+        font-size: 5.2rem;
+      }
+    }
+
+    .home__title span {
+      color: map-get($colors, secondary);
+    }
+
+    .home__presentation {
+      width: 100%;
+      line-height: 1.3;
+      letter-spacing: 1.03px;
+      @include home__text(
+        1.1rem,
+        100,
+        30px 0 65px,
+        map-get($colors, secondary)
+      );
+      @include bigger-phone {
+        width: 80%;
+      }
+      @include ipad {
+        width: 85%;
+        margin: 50px 0 80px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+      }
+    }
+
+    .get-in-touch {
+      padding: 18px 32px;
+      font-size: 0.9rem;
+      @extend %button;
+      @include ipad {
+        padding: 18px 37px;
+      }
+    }
+
+    .get-in-touch:hover {
+      background: rgba(1, 243, 207, 0.1);
+      transition: background 0.5s;
+    }
+  }
+}
+
+/* =================================
+                ABOUT 
+  ================================== */
+#about {
+  margin: 0 auto;
+  @extend %subtitle;
+  @include ipad {
+    width: 70%;
+  }
+  @include desktop {
+    width: 750px;
+  }
+
+  .title-container {
+    @extend %subtitle__title-container;
+
+    h1 {
+      @extend %subtitle__title;
+      @include ipad {
+        font-size: 2rem;
+      }
+
+      span {
+        @extend %subtitle__span;
+      }
+    }
+
+    &__underline {
+      @extend %subtitle__underline;
+    }
+  }
+
+  .title__container--appear {
+    @extend %subtitle__title-container--appear;
+  }
+
+  .main-container {
+    @extend %subtitle__main-container;
+
+    &__description {
+      width: 100%;
+
+      p {
+        margin: 20px 0;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        color: map-get($colors, secondary);
+        @include ipad {
+          font-size: 1.2rem;
+          line-height: 1.5;
+        }
+
+        a {
+          position: relative;
+          text-decoration: none;
+          font-size: 1.1rem;
+          color: map-get($colors, primary__accent);
+          @include ipad {
+            font-size: 1.2rem;
+            line-height: 1.5;
+          }
+        }
+
+        a:before {
+          position: absolute;
+          bottom: 2px;
+          left: 0;
+          content: "";
+          width: 0%;
+          height: 1px;
+          background: map-get($colors, primary__accent);
+          transition: width 0.5s ease;
+        }
+
+        a:hover:before {
+          width: 100%;
+          transition: width 0.5s ease;
+        }
+      }
+
+      p:first-of-type {
+        margin: 0;
+      }
+
+      .about__picture {
+        float: right;
+        clear: both;
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0px 10px;
+        border-radius: 5px;
+        background: url("../images/profil.jpg") no-repeat center;
+        background-size: cover;
+        @include ipad {
+          float: right;
+          margin: 0px 20px;
+          width: 170px;
+          height: 170px;
+        }
+      }
+
+      .about__picture:before {
+        @include picture(absolute, 0, 0, "", 100%, 100%);
+        background: rgba(1, 243, 207, 0.4);
+        transition: all 0.5s ease;
+      }
+
+      .about__picture:after {
+        z-index: -1;
+        border: 3px solid map-get($colors, primary__accent);
+        border-radius: 5px;
+        transition: all 0.2s ease-in-out;
+        @include picture(absolute, 5px, 5px, "", 100%, 100%);
+        @include ipad {
+          top: 6px;
+          left: 6px;
+        }
+      }
+
+      .about__picture:hover:before {
+        background: transparent;
+        transition: all 0.5s ease;
+      }
+
+      .about__picture:hover:after {
+        top: 2px;
+        left: 2px;
+        transition: all 0.2s ease-in-out;
+        @include ipad {
+          top: 3px;
+          left: 3px;
+        }
+      }
+    }
+  }
+  .main-container--fade-in {
+    @extend %subtitle__main-container--fade-in;
+  }
+}
+
+/* ==================================
+                SKILLS
+  =================================== */
+#skills {
+  @extend %subtitle;
+  @include ipad {
+    width: 70%;
+  }
+  @include desktop {
+    width: 750px;
+  }
+
+  .title-container {
+    @extend %subtitle__title-container;
+
+    h1 {
+      @extend %subtitle__title;
+      @include ipad {
+        font-size: 2rem;
+      }
+
+      span {
+        @extend %subtitle__span;
+      }
+    }
+
+    &__underline {
+      @extend %subtitle__underline;
+    }
+  }
+
+  .title__container--appear {
+    @extend %subtitle__title-container--appear;
+  }
+
+  .main-container {
+    @extend %subtitle__main-container;
+
+    &__description p {
+      margin: 20px 0;
+      font-size: 1.1rem;
+      line-height: 1.3;
+      color: map-get($colors, secondary);
+      @include ipad {
+        font-size: 1.2rem;
+        line-height: 1.5;
+      }
+    }
+
+    .program-languages {
+      width: 100%;
+
+      &__list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        @include ipad {
+          grid-gap: 20px;
+        }
+
+        .program-languages__items {
+          font-size: 0.8rem;
+          font-family: "SF Mono Light";
+          color: map-get($colors, secondary);
+          @include ipad {
+            font-size: 0.9rem;
+          }
+
+          i {
+            margin-right: 5px;
+            font-size: 0.7rem;
+            color: map-get($colors, primary__accent);
+            @include ipad {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main-container--fade-in {
+    @extend %subtitle__main-container--fade-in;
+  }
+}
+
+/* ====================================
+                PROJECTS
+  ===================================== */
+#projects {
+  @extend %subtitle;
+  @include ipad {
+    width: 70%;
+  }
+  @include desktop {
+    width: 750px;
+  }
+
+  .title-container {
+    @extend %subtitle__title-container;
+
+    h1 {
+      @extend %subtitle__title;
+      @include ipad {
+        font-size: 2rem;
+      }
+
+      span {
+        @extend %subtitle__span;
+      }
+    }
+
+    &__underline {
+      @extend %subtitle__underline;
+    }
+  }
+
+  .title__container--appear {
+    @extend %subtitle__title-container--appear;
+  }
+
+  .main-container {
+    @extend %subtitle__main-container;
+    @include ipad {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .projects__section {
+      width: 100%;
+      @include ipad {
+        width: 48%;
+        margin-top: 0;
+      }
+
+      .projects__description {
+        width: 100%;
+        margin-top: 30px;
+        padding: 30px 25px;
+        background: map-get($colors, navbar__mobile);
+        border-radius: 5px;
+        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+        transform: translateY(0);
+        transition: all 0.3s ease-in-out;
+        @include ipad {
+          height: 400px;
+        }
+
+        .projects__link {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+
+          & > i {
+            font-size: 3rem;
+            color: map-get($colors, primary__accent);
+          }
+          ul {
+            list-style: none;
+            display: flex;
+
+            a {
+              display: inline-block;
+              padding: 13px;
+
+              i {
+                font-size: 1.2rem;
+                color: map-get($colors, secondary__accent);
+                transition: color 0.5s ease;
+              }
+            }
+
+            a:hover i {
+              color: map-get($colors, primary__accent);
+              transition: color 0.5s ease;
+            }
+          }
+        }
+
+        .projects__title {
+          display: block;
+          margin-top: 25px;
+          font-size: 1.3rem;
+          font-weight: 600;
+          font-family: "Calibre Regular";
+          letter-spacing: 1.1px;
+          text-decoration: none;
+          color: rgba(255, 255, 255, 1);
+          transition: color 0.5s ease;
+          @include ipad {
+            font-size: 1.4rem;
+          }
+        }
+
+        .projects__title:hover {
+          color: map-get($colors, primary__accent);
+          transition: color 0.5s ease;
+        }
+
+        .projects__resume {
+          margin: 15px 0 40px;
+          font-size: 1.1rem;
+          line-height: 1.3;
+          color: map-get($colors, secondary);
+          @include ipad {
+            font-size: 1.2rem;
+            line-height: 1.5;
+          }
+        }
+
+        .languages-used {
+          width: 100%;
+          margin-bottom: 5px;
+
+          span {
+            margin-left: 10px;
+            font-size: 0.7rem;
+            font-family: "SF Mono Light";
+            font-weight: lighter;
+            color: rgba(204, 214, 246, 0.3);
+          }
+
+          span:first-of-type {
+            margin: 0;
+          }
+        }
+      }
+
+      .projects__description:hover {
+        transform: translateY(-5px);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  .main-container--fade-in {
+    @extend %subtitle__main-container--fade-in;
+  }
+}
+
+/* ====================================
+                CONTACT
+  ===================================== */
+#contact {
+  @extend %subtitle;
+  @include ipad {
+    width: 70%;
+  }
+  @include desktop {
+    width: 750px;
+  }
+
+  .title-container {
+    @extend %subtitle__title-container;
+
+    h1 {
+      @extend %subtitle__title;
+      @include ipad {
+        font-size: 2rem;
+      }
+
+      span {
+        @extend %subtitle__span;
+      }
+    }
+
+    &__underline {
+      @extend %subtitle__underline;
+    }
+  }
+
+  .title__container--appear {
+    @extend %subtitle__title-container--appear;
+  }
+
+  .main-container {
+    @extend %subtitle__main-container;
+
+    &__address {
+      width: 100%;
+      font-size: 1.2rem;
+      font-family: "Calibre Regular";
+      line-height: 1.3;
+      color: map-get($colors, secondary__accent);
+      @include ipad {
+        font-size: 1.2rem;
+        line-height: 1.5;
+      }
+    }
+
+    &__information {
+      margin: 20px 0 40px;
+      font-size: 1.1rem;
+      line-height: 1.3;
+      color: map-get($colors, secondary);
+      @include ipad {
+        font-size: 1.2rem;
+        line-height: 1.5;
+      }
+
+      a {
+        position: relative;
+        text-decoration: none;
+        font-size: 1.1rem;
+        color: map-get($colors, primary__accent);
+        @include ipad {
+          font-size: 1.2rem;
+          line-height: 1.5;
+        }
+      }
+
+      a:before {
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        content: "";
+        width: 0%;
+        height: 1px;
+        background: map-get($colors, primary__accent);
+        transition: width 0.5s ease;
+      }
+
+      a:hover:before {
+        width: 100%;
+        transition: width 0.5s ease;
+      }
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 35px;
+      margin-top: 50px;
+      @include ipad {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form__section {
+        position: relative;
+        width: 100%;
+        height: 40px;
+        border: 1px solid map-get($colors, secondary);
+
+        input {
+          @extend %form__input-text;
+        }
+
+        input:focus ~ .form__section__underline {
+          @extend %form__underline--animation;
+        }
+
+        &__title {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          margin: -23px 0 0 -1px;
+          font-size: 0.8rem;
+          font-family: "SF Mono Light";
+          color: map-get($colors, secondary__accent);
+          transition: margin 0.5s;
+        }
+
+        &__underline {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          display: block;
+          width: 0%;
+          height: 2px;
+          border-radius: 2px;
+          background: map-get($colors, primary__accent);
+          transition: width 1s;
+        }
+      }
+      .form__section--email,
+      .form__section--subject,
+      .form__section--text-area {
+        @include ipad {
+          grid-column: 1/3;
+        }
+      }
+
+      .form__section--text-area {
+        position: relative;
+        height: 115px;
+        @include ipad {
+          height: 150px;
+        }
+
+        textarea {
+          @extend %form__input-text;
+          padding: 10px 10px;
+          line-height: 1.5;
+          resize: none;
+        }
+
+        textarea:focus ~ .form__section__underline {
+          @extend %form__underline--animation;
+        }
+      }
+
+      .container {
+        text-align: right;
+        @include ipad {
+          grid-column: 1/3;
+        }
+
+        &__send-button {
+          @extend %button;
+          padding: 11px 30px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          background: transparent;
+        }
+
+        &__send-button:hover {
+          background: rgba(1, 243, 207, 0.1);
+          transition: background 0.5s;
+        }
+      }
+    }
+  }
+
+  .main-container--fade-in {
+    @extend %subtitle__main-container--fade-in;
+  }
+}
+
+/* ========================================
+                CONTACT PHP
+  ========================================= */
+.form__response--valid {
+  background: green;
+  @extend %form__response;
+  @include ipad {
+    font-size: 0.9rem;
+  }
+}
+
+.form__response--invalid {
+  background: red;
+  @extend %form__response;
+  @include ipad {
+    font-size: 0.9rem;
+  }
+}
+
+/* =======================================
+       FOOTER SOCIAL ICONS/EMAIL BAR
+  ======================================== */
+#footer {
+  .social-icons {
+    width: 55%;
+    margin: 70px auto 20px;
+    @include ipad {
+      width: 50px;
+      margin: 0;
+      position: fixed;
+      bottom: 0;
+      left: 40px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      @include ipad {
+        height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      a {
+        padding: 10px;
+        @include ipad {
+          width: 100%;
+          padding: 8px;
+          text-align: center;
+          transition: transform 0.2s;
+        }
+
+        i {
+          @include social-icons--transition(
+            map-get($colors, secondary__accent),
+            color 0.2s ease
+          );
+          font-size: 1.3rem;
+        }
+      }
+      a:hover {
+        @include ipad {
+          transform: translateY(-5px);
+          transition: transform 0.2s ease-in-out;
+        }
+      }
+
+      a:hover i {
+        @include social-icons--transition(
+          map-get($colors, primary__accent),
+          color 0.2s ease
+        );
+        @include ipad {
+          color: map-get($colors, primary__accent);
+          transition: color 0.2s ease-in-out;
+        }
+      }
+    }
+
+    &__border {
+      width: 1px;
+      height: 120px;
+      margin-top: 20px;
+      background: map-get($colors, secondary__accent);
+      display: none;
+      @include ipad {
+        display: block;
+        width: 1px;
+        height: 120px;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .email {
+    position: fixed;
+    bottom: 152px;
+    right: -110px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    transform: rotate(90deg);
+    display: none;
+    @include ipad {
+      display: flex;
+    }
+
+    &__link {
+      height: 100%;
+      padding: 10px;
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: lighter;
+      font-family: "SF Mono Light";
+      letter-spacing: 2.5px;
+      color: map-get($colors, secondary);
+      @include ipad {
+        transition: color 0.2s ease-in-out;
+      }
+    }
+
+    &__link:hover {
+      @include ipad {
+        transform: translateX(-5px);
+        color: map-get($colors, primary__accent);
+        transition: color 0.2s ease-in-out;
+      }
+    }
+
+    &__bar {
+      width: 120px;
+      height: 1px;
+      margin-left: 20px;
+      background: map-get($colors, secondary__accent);
+    }
+  }
+
+  .made-by {
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 0.72rem;
+    font-family: "SF Mono Light";
+    color: map-get($colors, secondary);
+    @include ipad {
+      margin: 80px 0 40px;
+    }
+  }
+}

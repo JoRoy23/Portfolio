@@ -1,28 +1,28 @@
 /* ============================================================
                     NAVIGATION BAR
 =============================================================== */
-const hamburgerContainer = document.querySelector(".hamburgerMenuContainer");
-const hamburgerIcon = document.querySelector(".hamburgerMenu");
-const showNavBar = document.querySelector(".navBar");
-const navLinks = document.querySelectorAll(".navItem");
-const body = document.querySelector("body");
+const hamburgerContainer = document.querySelector(".hamburger");
+const hamburgerIcon = document.querySelector(".hamburger__menu");
+const showNavBar = document.querySelector(".nav-bar");
+const navLinks = document.querySelectorAll(".nav-bar__nav-item");
+const body = document.querySelector(".body");
 const backdrop = document.querySelector(".backdrop");
-const header = document.querySelector("header");
+const header = document.querySelector(".header");
 
 /* Open/close navigation bar when clicking on the hamburger icon */
 hamburgerIcon.addEventListener("click", openCloseNavBar);
 
 function openCloseNavBar() {
-  showNavBar.classList.toggle("viewNavBar");
-  body.classList.toggle("viewNavBar");
-  backdrop.classList.toggle("viewNavBar");
+  showNavBar.classList.toggle("nav-bar--open");
+  body.classList.toggle("body--freeze");
+  backdrop.classList.toggle("backdrop--visible");
 }
 
 /* Switch icon when clicking on the hamburger menu*/
 hamburgerIcon.addEventListener("click", switchIcon);
 
 function switchIcon() {
-  hamburgerContainer.classList.toggle("navBarOpen");
+  hamburgerContainer.classList.toggle("hamburger--nav-open");
 }
 
 /* When clicking/touching outside the window or on an element inside of it
@@ -32,10 +32,10 @@ window.addEventListener("click", closeNavBar);
 
 function closeNavBar(event) {
   if (event.target !== showNavBar && event.target !== hamburgerIcon) {
-    showNavBar.classList.remove("viewNavBar");
-    hamburgerContainer.classList.remove("navBarOpen");
-    body.classList.remove("viewNavBar");
-    backdrop.classList.remove("viewNavBar");
+    showNavBar.classList.remove("nav-bar--open");
+    hamburgerContainer.classList.remove("hamburger--nav-open");
+    body.classList.remove("body--freeze");
+    backdrop.classList.remove("backdrop--visible");
   }
 }
 
@@ -45,10 +45,13 @@ let previousScrollPos = window.pageYOffset;
 window.addEventListener("scroll", () => {
   let currentScrollPos = window.pageYOffset;
   if (previousScrollPos > currentScrollPos) {
-    let header = (document.querySelector("header").style.top = "0");
+    let header = (document.querySelector(".header").style.top = "0");
   } else {
-    if (previousScrollPos > "100" && body.classList[0] !== "viewNavBar") {
-      let header = (document.querySelector("header").style.top = "-200px");
+    if (
+      previousScrollPos > "100" &&
+      body.classList[0] !== "body__nav-bar--open"
+    ) {
+      let header = (document.querySelector(".header").style.top = "-200px");
     }
   }
   previousScrollPos = currentScrollPos;
@@ -57,7 +60,7 @@ window.addEventListener("scroll", () => {
 /* Header shadow/color for the navigation bar */
 window.addEventListener("scroll", () => {
   let currentScrollPos = window.pageYOffset;
-  const header = document.querySelector("header");
+  const header = document.querySelector(".header");
   if (currentScrollPos === 0) {
     header.style.boxShadow = "none";
     header.style.height = "6rem";
@@ -71,8 +74,8 @@ window.addEventListener("scroll", () => {
                    SMOOTH SCROLLING JQUERY
 =============================================================== */
 /* Speed of the scrolling when we click on the contact button or on the navigation links */
-$(".navItem a").on("click", smoothScroll);
-$(".getInTouch").on("click", smoothScroll);
+$(".nav-bar__nav-item a").on("click", smoothScroll);
+$(".get-in-touch").on("click", smoothScroll);
 
 function smoothScroll(event) {
   if (this.hash !== "") {
@@ -94,7 +97,7 @@ let tl = gsap.timeline({ default: { ease: "Power2.easeOut" } });
 
 /* Animation for the preload logo */
 tl.to(
-  ".logoLoader",
+  ".preload__logo",
   {
     duration: 0.7,
     opacity: 0,
@@ -113,7 +116,7 @@ tl.to(".preload", {
 
 /* Animation for the logo */
 tl.from(
-  ".logo",
+  ".header__logo",
   {
     duration: 0.7,
     opacity: 0,
@@ -123,7 +126,7 @@ tl.from(
 
 /* Animation for the hamburger menu */
 tl.from(
-  ".hamburgerMiddleBar",
+  ".hamburger__middle-bar",
   {
     duration: 0.7,
     opacity: 0,
@@ -138,7 +141,7 @@ for (let i = 0; i < navLinks.length; i++) {
 
 /* Animation for the home content */
 tl.from(
-  ".smallText",
+  ".home__subtitle",
   {
     duration: 0.5,
     opacity: 0,
@@ -147,7 +150,7 @@ tl.from(
   "-=0.1"
 );
 tl.from(
-  ".homeHeader",
+  ".home__title",
   {
     duration: 0.5,
     opacity: 0,
@@ -156,7 +159,7 @@ tl.from(
   "-=0.4"
 );
 tl.from(
-  ".homeHeader span",
+  ".home__title span",
   {
     duration: 0.5,
     opacity: 0,
@@ -165,7 +168,7 @@ tl.from(
   "-=0.4"
 );
 tl.from(
-  ".homePresentation",
+  ".home__presentation",
   {
     duration: 0.5,
     opacity: 0,
@@ -173,47 +176,65 @@ tl.from(
   },
   "-=0.4"
 );
-tl.from(".getInTouch", { duration: 0.5, opacity: 0, y: 10 }, "-=0.4");
+tl.from(".get-in-touch", { duration: 0.5, opacity: 0, y: 10 }, "-=0.4");
 
 /* Animation for the footer */
-tl.from(".socialIconsBar", { duration: 1, opacity: 0 }, "+=0.1");
-tl.from(".emailBarContainer", { duration: 1, opacity: 0 }, "-=1");
+tl.from(".social-icons", { duration: 1, opacity: 0 }, "+=0.1");
+tl.from(".email", { duration: 1, opacity: 0 }, "-=1");
 
 /* ============================================================
                        FADE IN ANIMATION
 =============================================================== */
-/* Intersection observer for the fade in animation on each title and container */
-const faders = document.querySelectorAll(".fadeIn");
-const sliders = document.querySelectorAll(".slideIn");
+/* Intersection observer for the slide in animation on the title container */
+const titleContainer = document.querySelectorAll(".title-container");
 
-const appearOptions = {
+const slideOptions = {
   root: null,
   threshold: 0.6,
 };
 
-const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+const slideOnScroll = new IntersectionObserver((entries, slideOnScroll) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) {
       return;
     } else {
-      entry.target.classList.add("appear");
-      appearOnScroll.unobserve(entry.target);
+      entry.target.classList.add("title__container--appear");
+      slideOnScroll.unobserve(entry.target);
     }
   });
-}, appearOptions);
+}, slideOptions);
 
-faders.forEach((fader) => {
-  appearOnScroll.observe(fader);
-});
-sliders.forEach((slider) => {
-  appearOnScroll.observe(slider);
+titleContainer.forEach((title) => {
+  slideOnScroll.observe(title);
 });
 
+/* Intersection observer for the fade in animation on the main container */
+const mainContainer = document.querySelectorAll(".main-container");
+
+const fadeInOptions = {
+  root: null,
+  threshold: 0.6,
+};
+
+const fadeInOnScroll = new IntersectionObserver((entries, fadeInOnScroll) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add("main-container--fade-in");
+      fadeInOnScroll.unobserve(entry.target);
+    }
+  });
+}, fadeInOptions);
+
+mainContainer.forEach((container) => {
+  fadeInOnScroll.observe(container);
+});
 /* ============================================================
                        HEXAGON LOGO       
 =============================================================== */
 /* Pixel length for the path of the hexagonal logo */
-const logo = document.querySelectorAll(".logoLoader path");
+const logo = document.querySelectorAll(".preload__logo path");
 
 for (let j = 0; j < logo.length; j++) {
   console.log(logo[j].getTotalLength());

@@ -38,10 +38,6 @@
   background: map-get($colors, primary);
 }
 
-.body--freeze {
-  overflow: hidden;
-}
-
 /* ================================
                PRELOADER
   ================================= */
@@ -286,6 +282,10 @@
     right: 0;
     transition: right 0.5s ease-in-out;
   }
+}
+.header--freeze {
+  top: 0;
+  left: 0;
 }
 
 /* ==================================

@@ -197,10 +197,6 @@
   background: #0a192f;
 }
 
-.body--freeze {
-  overflow: hidden;
-}
-
 /* ================================
                PRELOADER
   ================================= */
@@ -532,6 +528,11 @@
   right: 0;
   -webkit-transition: right 0.5s ease-in-out;
   transition: right 0.5s ease-in-out;
+}
+
+.header--freeze {
+  top: 0;
+  left: 0;
 }
 
 /* ==================================

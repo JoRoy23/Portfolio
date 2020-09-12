@@ -1,63 +1,32 @@
 /* ============================================================
-                    NAVIGATION BAR
+                     NAVIGATION BAR
 =============================================================== */
-const hamburgerContainer = document.querySelector(".hamburger");
-const hamburgerIcon = document.querySelector(".hamburger__menu");
+/* Declaring variables */
+const hamburger = document.querySelector(".hamburger");
+const hamburgerMenu = document.querySelector(".hamburger__menu");
 const showNavBar = document.querySelector(".nav-bar");
 const navLinks = document.querySelectorAll(".nav-bar__nav-item");
 const body = document.querySelector(".body");
 const backdrop = document.querySelector(".backdrop");
 const header = document.querySelector(".header");
 
-/* Open/close navigation bar when clicking on the hamburger icon */
-hamburgerIcon.addEventListener("click", openCloseNavBar);
+/* Open and close the navigation bar when toggling on the hamburger icon */
+hamburgerMenu.addEventListener("click", openCloseNavBar);
 
 function openCloseNavBar() {
+  hamburger.classList.toggle("hamburger--nav-open");
   showNavBar.classList.toggle("nav-bar--open");
-  body.classList.toggle("body--freeze");
   backdrop.classList.toggle("backdrop--visible");
+  header.classList.toggle("header--freeze");
 }
 
-/* Switch icon when clicking on the hamburger menu*/
-hamburgerIcon.addEventListener("click", switchIcon);
-
-function switchIcon() {
-  hamburgerContainer.classList.toggle("hamburger--nav-open");
-}
-
-/* When clicking/touching outside the window or on an element inside of it
-that is different then the hamburger icon */
-window.addEventListener("touchstart", closeNavBar);
-window.addEventListener("click", closeNavBar);
-
-function closeNavBar(event) {
-  if (event.target !== showNavBar && event.target !== hamburgerIcon) {
-    showNavBar.classList.remove("nav-bar--open");
-    hamburgerContainer.classList.remove("hamburger--nav-open");
-    body.classList.remove("body--freeze");
-    backdrop.classList.remove("backdrop--visible");
+if (window.innerWidth < 768) {
+  console.log(window.innerWidth);
+  for (let i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener("click", openCloseNavBar);
   }
 }
 
-/* Sticky header when we scroll back */
-let previousScrollPos = window.pageYOffset;
-
-window.addEventListener("scroll", () => {
-  let currentScrollPos = window.pageYOffset;
-  if (previousScrollPos > currentScrollPos) {
-    let header = (document.querySelector(".header").style.top = "0");
-  } else {
-    if (
-      previousScrollPos > "100" &&
-      body.classList[0] !== "body__nav-bar--open"
-    ) {
-      let header = (document.querySelector(".header").style.top = "-200px");
-    }
-  }
-  previousScrollPos = currentScrollPos;
-});
-
-/* Header shadow/color for the navigation bar */
 window.addEventListener("scroll", () => {
   let currentScrollPos = window.pageYOffset;
   const header = document.querySelector(".header");
@@ -70,10 +39,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-/* ============================================================
-                   SMOOTH SCROLLING JQUERY
-=============================================================== */
-/* Speed of the scrolling when we click on the contact button or on the navigation links */
+/* Speed of the scrolling when we click on the contact button or the navigation links */
 $(".nav-bar__nav-item a").on("click", smoothScroll);
 $(".get-in-touch").on("click", smoothScroll);
 
@@ -230,10 +196,11 @@ const fadeInOnScroll = new IntersectionObserver((entries, fadeInOnScroll) => {
 mainContainer.forEach((container) => {
   fadeInOnScroll.observe(container);
 });
+
 /* ============================================================
                        HEXAGON LOGO       
 =============================================================== */
-/* Pixel length for the path of the hexagonal logo */
+/* Pixel length for the path of the preload logo */
 const logo = document.querySelectorAll(".preload__logo path");
 
 for (let j = 0; j < logo.length; j++) {

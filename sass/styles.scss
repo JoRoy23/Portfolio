@@ -283,10 +283,6 @@
     transition: right 0.5s ease-in-out;
   }
 }
-.header--freeze {
-  top: 0;
-  left: 0;
-}
 
 /* ==================================
             HOME CONTENT
@@ -329,20 +325,14 @@
       line-height: 1.1;
       font-family: "Calibre Medium";
       @include home__text(
-        2.5rem,
+        10.5vw,
         lighter,
         0,
         map-get($colors, secondary__accent)
       );
-      @include iphone {
-        font-size: 2.6rem;
-      }
-      @include bigger-phone {
-        font-size: 3.3rem;
-      }
       @include ipad {
         width: 95%;
-        font-size: 4.4rem;
+        font-size: 9vw;
         font-weight: 900;
       }
       @include desktop {
@@ -679,6 +669,9 @@
         transform: translateY(0);
         transition: all 0.3s ease-in-out;
         @include ipad {
+          height: 450px;
+        }
+        @include desktop {
           height: 400px;
         }
 

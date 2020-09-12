@@ -10,15 +10,8 @@ const body = document.querySelector(".body");
 const backdrop = document.querySelector(".backdrop");
 const header = document.querySelector(".header");
 
-/* Open and close the navigation bar when toggling on the hamburger icon */
+/* Open and close the navigation bar when toggling on the hamburger icon or the navlinks */
 hamburgerMenu.addEventListener("click", openCloseNavBar);
-
-function openCloseNavBar() {
-  hamburger.classList.toggle("hamburger--nav-open");
-  showNavBar.classList.toggle("nav-bar--open");
-  backdrop.classList.toggle("backdrop--visible");
-  header.classList.toggle("header--freeze");
-}
 
 if (window.innerWidth < 768) {
   console.log(window.innerWidth);
@@ -27,6 +20,13 @@ if (window.innerWidth < 768) {
   }
 }
 
+function openCloseNavBar() {
+  hamburger.classList.toggle("hamburger--nav-open");
+  showNavBar.classList.toggle("nav-bar--open");
+  backdrop.classList.toggle("backdrop--visible");
+}
+
+/* Styling the header when the Yposition of the window is zero */
 window.addEventListener("scroll", () => {
   let currentScrollPos = window.pageYOffset;
   const header = document.querySelector(".header");

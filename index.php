@@ -165,6 +165,20 @@
         <div class="title-container__underline"></div>
       </div>
       <div class="main-container">
+      <div class="projects__section">
+          <div class="projects__description">
+            <div class="projects__link">
+              <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+              <ul>
+                <li><a href="https://github.com/JoRoy23/Netflix-Clone" target="_blank" title="Github Code"><i class="fab fa-github" title="github"></i></a></li>
+                <li><a href="https://netflix-clone-aff6b.web.app" target="_blank" title="Project Link"><i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+              </ul>
+            </div> 
+            <a href="https://netflix-clone-aff6b.web.app" target="_blank" class="projects__title">Netflix Clone</a>
+            <p class="projects__resume">A Netflix website built with React where you can watch trailers and see the new trends for any kind of movie. This website is hosted by Firebase.</p>
+            <div class="languages-used"><span>React</span><span>Router</span><span>Firebase</span><span>Axios</span><span>HTML & CSS</span><span>Sass</span></div>
+          </div>
+        </div>
         <div class="projects__section">
           <div class="projects__description">
             <div class="projects__link">
@@ -175,8 +189,8 @@
               </ul>
             </div> 
             <a href="https://www.goatkickercoffee.com" target="_blank" class="projects__title">Coffee Online Store</a>
-            <p class="projects__resume">A coffee beans eCommerce website where you can buy merchandises online and find information about our four shops located in Bali, whether it's about the menu, opening hours, etc...</p>
-            <div class="languages-used"><span>JavaScript</span><span>jQuery</span><span>HTML & CSS</span><span>GSAP</span></div>
+            <p class="projects__resume">A coffee beans eCommerce website built with JavaScript where you can buy merchandises online and find information about our four shops located in Bali. This website is hosted by Netlify.</p>
+            <div class="languages-used"><span>JavaScript</span><span>jQuery</span><span>HTML & CSS</span><span>GSAP</span><span>Netlify</span></div>
           </div>
         </div>
         <div class="projects__section">
@@ -189,8 +203,8 @@
               </ul>
             </div> 
             <a href="https://www.royjonathan.com" target="_blank" class="projects__title">Personal Portfolio</a>
-            <p class="projects__resume">The portfolio you're currently in was built from scratch to highlight my skills and projects that I have acquired over the years</p>
-            <div class="languages-used"><span>JavaScript</span><span>jQuery</span><span>HTML & CSS</span><span>Sass</span><span>GSAP</span></div>
+            <p class="projects__resume">The portfolio you're currently in was built from scratch to highlight my skills and projects that I have acquired over the years. This portfolio is hosted with Hostinger.</p>
+            <div class="languages-used"><span>JavaScript</span><span>jQuery</span><span>HTML & CSS</span><span>Sass</span><span>GSAP</span><span>Hostinger</span></div>
           </div>
         </div>
       </div>
